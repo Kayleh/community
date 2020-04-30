@@ -1,6 +1,7 @@
 package kayleh.wizard.community.controller;
 
 import kayleh.wizard.community.dto.AccessTokenDTO;
+import kayleh.wizard.community.dto.GithubUser;
 import kayleh.wizard.community.provider.GithubProvider;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -28,7 +29,9 @@ public class AuthorizeController {
         accessTokenDTO.setClient_secret("4219096373d2a9178f6978124ed89d114e764359");
 
 
-        githubProvider.getAccessToken(accessTokenDTO);
+        String accessToken = githubProvider.getAccessToken(accessTokenDTO);
+        GithubUser user = githubProvider.getUser(accessToken);
+        System.out.println(user.getName());
         return "index";
     }
 
