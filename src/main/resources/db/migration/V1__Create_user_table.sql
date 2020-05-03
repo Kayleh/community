@@ -1,0 +1,10 @@
+-- CREATE TABLE USER,
+-- (
+--     ID INT AUTO_INCREMENT PRIMARY KEY NOT NULL,
+--     ACCOUNT_ID VARCHAR(100),
+--     NAME VARCHAR(50),
+--     Token VARCHAR(36),
+--     gmt_create BIGINT,
+--     gmt_modified BIGINT
+--
+-- )DEFAULT CHARSET=utf8;

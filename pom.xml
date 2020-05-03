@@ -59,12 +59,12 @@
             <version>1.2.68</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/com.h2database/h2 -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>1.4.200</version>
-<!--            <scope>test</scope>-->
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.h2database</groupId>-->
+<!--            <artifactId>h2</artifactId>-->
+<!--            <version>1.4.200</version>-->
+<!--&lt;!&ndash;            <scope>test</scope>&ndash;&gt;-->
+<!--        </dependency>-->
 
 
 <!--        com.squareup.okio:okio:1.13.0-->
@@ -86,6 +86,17 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+
+            <plugin>
+                <groupId>org.flywaydb</groupId>
+                <artifactId>flyway-maven-plugin</artifactId>
+                <version>5.2.4</version>
+                <configuration>
+                    <url>jdbc:mysql://localhost:3306/community</url>
+                    <user>root</user>
+                    <password>admin</password>
+                </configuration>
             </plugin>
         </plugins>
     </build>
