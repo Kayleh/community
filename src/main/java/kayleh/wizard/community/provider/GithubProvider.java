@@ -17,7 +17,6 @@ import java.io.IOException;
 public class GithubProvider {
     public String getAccessToken(AccessTokenDTO accessTokenDTO) {
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
-
         OkHttpClient client = new OkHttpClient();
 
         RequestBody body = RequestBody.create(mediaType, JSON.toJSONString(accessTokenDTO));
@@ -26,13 +25,13 @@ public class GithubProvider {
                 .post(body)
                 .build();
         try (Response response = client.newCall(request).execute()) {
-//            String string = response.body().string();
-//            String[] split = string.split("&");
-//            String tokenString = split[0];
-//            String token = tokenString.split("=")[1];
-//            return token;
-            String[] split = response.body().string().split("&");
-            return split[0].split("=")[1];
+            String string = response.body().string();
+            String[] split = string.split("&");
+            String tokenString = split[0];
+            String token = tokenString.split("=")[1];
+            return token;
+//            String[] split = response.body().string().split("&");
+//            return split[0].split("=")[1];
 //            System.out.println(string);
 //            return string;
         } catch (Exception e) {
@@ -44,7 +43,7 @@ public class GithubProvider {
     public GithubUser getUser(String accessToken)  {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
-                .url("https://api.github.com/user?access_token="+accessToken)
+                .url("https://api.github.com/user?access_token=" + accessToken)
                 .build();
         try {
             Response response = client.newCall(request).execute();
@@ -52,7 +51,7 @@ public class GithubProvider {
             GithubUser githubUser = JSON.parseObject(string, GithubUser.class);
             return githubUser;
         } catch (IOException e) {
-
+            e.printStackTrace();
         }return null;
 
     }
