@@ -19,7 +19,7 @@ README.md
 *.iws
 *.iml
 *.ipr
-application.properties
+*.properties
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
