@@ -1,5 +1,6 @@
 package kayleh.wizard.community.controller;
 
+import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.mapper.QuestionMapper;
 import kayleh.wizard.community.mapper.UserMapper;
@@ -32,10 +33,12 @@ public class IndexController {
 
     @GetMapping("/")
 //    @RequestMapping("/")
-    public String index(HttpServletRequest request,Model model) {
+    public String index(HttpServletRequest request, Model model,
+                        @RequestParam(name = "page", defaultValue = "1") Integer page,
+                        @RequestParam(name = "size", defaultValue = "5") Integer size) {
         Cookie[] cookies = request.getCookies();
         //&&
-        if (cookies != null && cookies.length != 0){
+        if (cookies != null && cookies.length != 0) {
             for (Cookie cookie : cookies)
                 //字符串写在equal前面，防止空指针异常
                 if ((cookie.getName()).equals("token")) {
@@ -46,11 +49,11 @@ public class IndexController {
                     }
                     break;
                 }
-            }//return "index";
+        }
 
 
-        List<QuestionDTO> questionList = questionService.list();
-        model.addAttribute("questions",questionList);
+        PaginationDTO pagination = questionService.list(page,size);
+        model.addAttribute("pagination", pagination);
         return "index";
     }
 }
