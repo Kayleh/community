@@ -25,31 +25,31 @@ import java.util.List;
 @Controller
 public class IndexController {
 
-    @Autowired
-    private UserMapper userMapper;
+//    @Autowired
+//    private UserMapper userMapper;
 
     @Autowired
     private QuestionService questionService;
 
     @GetMapping("/")
 //    @RequestMapping("/")
-    public String index(HttpServletRequest request, Model model,
+    public String index(//HttpServletRequest request,
+                        Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
                         @RequestParam(name = "size", defaultValue = "5") Integer size) {
-        Cookie[] cookies = request.getCookies();
-        //&&
-        if (cookies != null && cookies.length != 0) {
-            for (Cookie cookie : cookies)
-                //字符串写在equal前面，防止空指针异常
-                if ((cookie.getName()).equals("token")) {
-                    String token = cookie.getValue();
-                    User user = userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);
-                    }
-                    break;
-                }
-        }
+//        Cookie[] cookies = request.getCookies();
+//        if (cookies != null && cookies.length != 0) {
+//            for (Cookie cookie : cookies)
+//                //字符串写在equal前面，防止空指针异常
+//                if ((cookie.getName()).equals("token")) {
+//                    String token = cookie.getValue();
+//                    User user = userMapper.findByToken(token);
+//                    if (user != null) {
+//                        request.getSession().setAttribute("user", user);
+//                    }
+//                    break;
+//                }
+//        }
 
 
         PaginationDTO pagination = questionService.list(page,size);

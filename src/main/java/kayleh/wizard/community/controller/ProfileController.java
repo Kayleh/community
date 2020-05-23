@@ -24,8 +24,6 @@ import javax.servlet.http.HttpSession;
 public class ProfileController {
 
     @Autowired
-    private UserMapper userMapper;
-    @Autowired
     private QuestionService questionService;
 
 
@@ -33,24 +31,26 @@ public class ProfileController {
     public String profile(@PathVariable("action") String action, Model model, HttpServletRequest request,
                           @RequestParam(name = "page", defaultValue = "1") Integer page,
                           @RequestParam(name = "size", defaultValue = "5") Integer size) {
+//
+//        User user = null;
+//
+//        Cookie[] cookies = request.getCookies();
+//        //&&
+//        if (cookies != null && cookies.length != 0) {
+//            for (Cookie cookie : cookies) {
+//                //字符串写在equal前面，防止空指针异常
+//                if ((cookie.getName()).equals("token")) {
+//                    String token = cookie.getValue();
+//                    user = userMapper.findByToken(token);
+//                    if (user != null) {
+//                        request.getSession().setAttribute("user", user);
+//                    }
+//                    break;
+//                }
+//            }
+//        }
 
-        User user = null;
-
-        Cookie[] cookies = request.getCookies();
-        //&&
-        if (cookies != null && cookies.length != 0) {
-            for (Cookie cookie : cookies) {
-                //字符串写在equal前面，防止空指针异常
-                if ((cookie.getName()).equals("token")) {
-                    String token = cookie.getValue();
-                    user = userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);
-                    }
-                    break;
-                }
-            }
-        }
+        User user = (User) request.getSession().getAttribute("user");
 
         if (user==null){
             return "redirect:/";

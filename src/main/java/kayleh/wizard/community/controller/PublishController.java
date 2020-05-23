@@ -56,21 +56,27 @@ public class PublishController {
         }
 
 
-        User user = null;
-        Cookie[] cookies = request.getCookies();
-        //&&cookies.length!=0
-        if (cookies != null)
-            for (Cookie cookie : cookies) {
-                //字符串写在equal前面，防止空指针异常
-                if ((cookie.getName().equals("token"))) {
-                    String token = cookie.getValue();
-                    user = userMapper.findByToken(token);
-                    if (user != null) {
-                        request.getSession().setAttribute("user", user);
-                    }
-                    break;
-                }
-            }
+//        User user = null;
+//        Cookie[] cookies = request.getCookies();
+//        //&&cookies.length!=0
+//        if (cookies != null)
+//            for (Cookie cookie : cookies) {
+//                //字符串写在equal前面，防止空指针异常
+//                if ((cookie.getName().equals("token"))) {
+//                    String token = cookie.getValue();
+//                    user = userMapper.findByToken(token);
+//                    if (user != null) {
+//                        request.getSession().setAttribute("user", user);
+//                    }
+//                    break;
+//                }
+//            }
+
+        User user = (User) request.getSession().getAttribute("user");
+
+//        if (user==null){
+//            return "redirect:/";
+//        }
 
         if (user == null) {
             model.addAttribute("error", "用户未登录");
