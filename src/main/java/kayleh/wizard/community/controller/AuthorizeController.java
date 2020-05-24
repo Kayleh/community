@@ -5,6 +5,7 @@ import kayleh.wizard.community.dto.GithubUser;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.User;
 import kayleh.wizard.community.provider.GithubProvider;
+import kayleh.wizard.community.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
@@ -13,10 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.annotation.Resource;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.*;
 import java.util.UUID;
 
 /**
@@ -31,6 +29,9 @@ public class AuthorizeController {
     private GithubProvider githubProvider;
     @Autowired
     private UserMapper userMapper;
+    @Autowired
+    UserService userService;
+
 
     @Value("${github.client.id}")
     private String clientId;
@@ -38,6 +39,7 @@ public class AuthorizeController {
     private String clientSecret;
     @Value("${github.redirect.uri}")
     private String redirectUri;
+
 
 //    @RequestMapping("/callback")
     @GetMapping("/callback")
@@ -55,14 +57,17 @@ public class AuthorizeController {
         GithubUser githubUser = githubProvider.getUser(accessToken);
         if (githubUser!=null && githubUser.getId()!=null) {
             User user = new User();
+            //token是需要更新的
             String token = UUID.randomUUID().toString();
             user.setToken(token);
             user.setName(githubUser.getName());
+            //accountId是唯一的
             user.setAccountId(String.valueOf(githubUser.getId()));
-            user.setGmtCreate(System.currentTimeMillis());
-            user.setGmtModified(user.getGmtCreate());
+//            user.setGmtCreate(System.currentTimeMillis());
+//            user.setGmtModified(user.getGmtCreate());
             user.setAvatarUrl(githubUser.getAvatar_url());
-            userMapper.insert(user);
+            userService.createOrUpdate(user);
+//            userMapper.insert(user);
             System.out.println(githubUser.getName());
 
             Cookie cookie = new Cookie("token", token);
@@ -79,6 +84,16 @@ public class AuthorizeController {
             return "redirect:/";
         }
 
+    }
+
+    @GetMapping("/logout")
+    public String logout(HttpServletRequest request,HttpServletResponse response){
+        HttpSession session = request.getSession();
+        session.removeAttribute("user");
+        Cookie cookie = new Cookie("token", null);
+        cookie.setMaxAge(0);
+        response.addCookie(cookie);
+        return "redirect:/";
     }
 
 }

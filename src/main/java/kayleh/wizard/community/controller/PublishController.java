@@ -1,13 +1,16 @@
 package kayleh.wizard.community.controller;
 
+import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.mapper.QuestionMapper;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.model.User;
+import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,10 +24,24 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 public class PublishController {
 
+//    @Autowired
+//    private UserMapper userMapper;
+//    @Autowired
+//    private QuestionMapper questionMapper;
     @Autowired
-    UserMapper userMapper;
-    @Autowired
-    QuestionMapper questionMapper;
+    private QuestionService questionService;
+
+    @GetMapping("/publish/{id}")
+    public String edit(@PathVariable("id") Integer id, Model model) {
+
+
+        QuestionDTO question = questionService.getById(id);
+        model.addAttribute("title", question.getTitle());
+        model.addAttribute("description", question.getDescription());
+        model.addAttribute("tag", question.getTag());
+        model.addAttribute("id", id);
+        return "publish";
+    }
 
     @GetMapping("/publish")
     public String publish() {
@@ -33,9 +50,10 @@ public class PublishController {
 
     @PostMapping("/publish")
     public String doPublish(
-            @RequestParam("title") String title,
-            @RequestParam("description") String description,
-            @RequestParam("tag") String tag,
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "description", required = false) String description,
+            @RequestParam(value = "tag", required = false) String tag,
+            @RequestParam(value = "id", required = false) Integer id,
             HttpServletRequest request,
             Model model) {
         model.addAttribute("title", title);
@@ -87,10 +105,12 @@ public class PublishController {
         question.setTitle(title);
         question.setDescription(description);
         question.setCreator(user.getId());
-        question.setGmtCreate(System.currentTimeMillis());
-        question.setGmtModified(question.getGmtCreate());
+//        question.setGmtCreate(System.currentTimeMillis());
+//        question.setGmtModified(question.getGmtCreate());
+        question.setId(id);
+        questionService.createOrUpdate(question);
+//        questionMapper.create(question);
 
-        questionMapper.create(question);
         return "redirect:/";
     }
 }
