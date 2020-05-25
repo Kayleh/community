@@ -2,6 +2,8 @@ package kayleh.wizard.community.service;
 
 import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
+import kayleh.wizard.community.exception.CustomizeErrorCode;
+import kayleh.wizard.community.exception.CustomizeException;
 import kayleh.wizard.community.mapper.QuestionMapper;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.Question;
@@ -129,6 +131,9 @@ public class QuestionService {
 
     public QuestionDTO getById(Integer id) {
         Question question = questionMapper.selectByPrimaryKey(id);
+        if (question==null){
+            throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+        }
         QuestionDTO questionDTO = new QuestionDTO();
         BeanUtils.copyProperties(question, questionDTO);
 
@@ -157,7 +162,10 @@ public class QuestionService {
             updateQuestion.setTag(question.getTag());
             QuestionExample example = new QuestionExample();
             example.createCriteria().andIdEqualTo(question.getId());
-            questionMapper.updateByExampleSelective(updateQuestion, example);
+            int update = questionMapper.updateByExampleSelective(updateQuestion, example);
+            if (update!=1){
+                throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
+            }
         }
     }
 }
