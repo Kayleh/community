@@ -2,8 +2,11 @@ package kayleh.wizard.community.service;
 
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.User;
+import kayleh.wizard.community.model.UserExample;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 /**
  * @Author: Wizard
@@ -17,20 +20,29 @@ public class UserService {
 
 
     public void createOrUpdate(User user) {
-        User dbUser = userMapper.findByAccountId(user.getAccountId());
-        if (dbUser==null){
+        UserExample userExample = new UserExample();
+        userExample.createCriteria().andAccountIdEqualTo(user.getAccountId());
+        List<User> dbUser = userMapper.selectByExample(userExample);
+//        User dbUser = userMapper.findByAccountId(user.getAccountId());
+        if (dbUser.size()==0){
             //插入
             user.setGmtCreate(System.currentTimeMillis());
             user.setGmtModified(user.getGmtCreate());
             userMapper.insert(user);
         }else {
-            dbUser.setGmtModified(System.currentTimeMillis());
-            //会变化
-            dbUser.setAvatarUrl(user.getAvatarUrl());
-            dbUser.setName(user.getName());
-            dbUser.setToken(user.getToken());
-            userMapper.update(dbUser);
             //更新
+            User dbuser = dbUser.get(0);
+            User updateUser = new User();
+            //会变化
+            updateUser.setGmtModified(System.currentTimeMillis());
+            updateUser.setAvatarUrl(user.getAvatarUrl());
+            updateUser.setName(user.getName());
+            updateUser.setToken(user.getToken());
+            UserExample example = new UserExample();
+            example.createCriteria().andIdEqualTo(dbuser.getId());
+            userMapper.updateByExampleSelective(updateUser, example);
+//            userMapper.update(dbUser);
+
         }
     }
 }

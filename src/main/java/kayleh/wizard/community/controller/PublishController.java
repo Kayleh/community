@@ -1,8 +1,6 @@
 package kayleh.wizard.community.controller;
 
 import kayleh.wizard.community.dto.QuestionDTO;
-import kayleh.wizard.community.mapper.QuestionMapper;
-import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.model.User;
 import kayleh.wizard.community.service.QuestionService;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 
 /**

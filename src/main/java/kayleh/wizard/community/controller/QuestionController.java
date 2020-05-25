@@ -1,7 +1,6 @@
 package kayleh.wizard.community.controller;
 
 import kayleh.wizard.community.dto.QuestionDTO;
-import kayleh.wizard.community.mapper.QuestionMapper;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
