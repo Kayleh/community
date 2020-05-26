@@ -33,16 +33,15 @@
             <property name="enableSubPackages" value="true" />
         </javaClientGenerator>
 
-        <table tableName="user" domainObjectName="User" >
-<!--            <property name="useActualColumnNames" value="true"/>-->
-<!--            <generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
-<!--            重写列名<columnOverride column="DATE_FIELD" property="startDate" />-->
-<!--            <ignoreColumn column="FRED" />-->
-<!--            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
-        </table>
-        <table tableName="question" domainObjectName="Question" >
+        <!--            <property name="useActualColumnNames" value="true"/>-->
+        <!--            <generatedKey column="ID" sqlStatement="DB2" identity="true" />-->
+        <!--            重写列名<columnOverride column="DATE_FIELD" property="startDate" />-->
+        <!--            <ignoreColumn column="FRED" />-->
+        <!--            <columnOverride column="LONG_VARCHAR_FIELD" jdbcType="VARCHAR" />-->
 
-        </table>
+        <table tableName="user" domainObjectName="User" ></table>
+        <table tableName="question" domainObjectName="Question" ></table>
+        <table tableName="comment" domainObjectName="Comment" ></table>
 
     </context>
 </generatorConfiguration>

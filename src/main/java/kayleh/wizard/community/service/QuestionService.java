@@ -4,6 +4,7 @@ import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.exception.CustomizeErrorCode;
 import kayleh.wizard.community.exception.CustomizeException;
+import kayleh.wizard.community.mapper.QuestionExtMapper;
 import kayleh.wizard.community.mapper.QuestionMapper;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.Question;
@@ -27,6 +28,8 @@ public class QuestionService {
     QuestionMapper questionMapper;
     @Autowired
     UserMapper userMapper;
+    @Autowired
+    QuestionExtMapper questionExtMapper;
 
 
     public PaginationDTO list(Integer page, Integer size) {
@@ -77,7 +80,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public PaginationDTO list(Integer userId, Integer page, Integer size) {
+    public PaginationDTO list(Long userId, Integer page, Integer size) {
 
         PaginationDTO paginationDTO = new PaginationDTO();
 
@@ -129,7 +132,7 @@ public class QuestionService {
         return paginationDTO;
     }
 
-    public QuestionDTO getById(Integer id) {
+    public QuestionDTO getById(Long id) {
         Question question = questionMapper.selectByPrimaryKey(id);
         if (question==null){
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
@@ -149,6 +152,9 @@ public class QuestionService {
             //创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(System.currentTimeMillis());
+            question.setViewCount(0);
+            question.setCommentCount(0);
+            question.setLikeCount(0);
             //用insertSelective
             questionMapper.insertSelective(question);
         }else {
@@ -167,6 +173,15 @@ public class QuestionService {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
+    }
+
+    public void inView(Long id) {
+
+
+        Question question = new Question();
+        question.setId(id);
+        question.setViewCount(1);
+        questionExtMapper.inView(question);
     }
 }
 //
