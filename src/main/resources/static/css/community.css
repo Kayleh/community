@@ -72,6 +72,11 @@ body{
     font-size: 15px;
     cursor: pointer;
 }
+.menu .comment-icon{
+    font-size: 15px;
+    cursor: pointer;
+}
+
 .menu .active{
     color: #499ef3;
 }

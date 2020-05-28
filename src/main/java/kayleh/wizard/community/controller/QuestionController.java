@@ -34,6 +34,8 @@ public class QuestionController {
 
         //累加阅读数
         questionService.inView(id);
+
+
         model.addAttribute("question", questionDTO);
         model.addAttribute("comments", comments);
         return "question";
