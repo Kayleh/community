@@ -1,9 +1,11 @@
 package kayleh.wizard.community.controller;
 
+import kayleh.wizard.cache.TagCache;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.model.User;
 import kayleh.wizard.community.service.QuestionService;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,11 +39,17 @@ public class PublishController {
         model.addAttribute("description", question.getDescription());
         model.addAttribute("tag", question.getTag());
         model.addAttribute("id", id);
+
+        model.addAttribute("tags", TagCache.get());
+
         return "publish";
     }
 
     @GetMapping("/publish")
-    public String publish() {
+    public String publish(Model model) {
+        //
+        model.addAttribute("tags", TagCache.get());
+
         return "publish";
     }
 
@@ -56,6 +64,9 @@ public class PublishController {
         model.addAttribute("title", title);
         model.addAttribute("description", description);
         model.addAttribute("tag", tag);
+
+        //
+        model.addAttribute("tags", TagCache.get());
 
         if (title == null || title == "") {
             model.addAttribute("error", "标题不能为空");
@@ -110,4 +121,6 @@ public class PublishController {
 
         return "redirect:/";
     }
+
+
 }

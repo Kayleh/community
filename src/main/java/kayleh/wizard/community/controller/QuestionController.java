@@ -3,6 +3,7 @@ package kayleh.wizard.community.controller;
 import kayleh.wizard.community.dto.CommentDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.enums.CommentTypeEnum;
+import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.service.CommentService;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,6 +30,8 @@ public class QuestionController {
     public String question(@PathVariable(name = "id") Long id, Model model) {
         QuestionDTO questionDTO = questionService.getById(id);
 
+        List<QuestionDTO> relatedQuestions = questionService.selectRelated(questionDTO);
+
         List<CommentDTO> comments = commentService.listByTargetId(id, CommentTypeEnum.QUESTION);
 
 
@@ -38,6 +41,7 @@ public class QuestionController {
 
         model.addAttribute("question", questionDTO);
         model.addAttribute("comments", comments);
+        model.addAttribute("relatedQuestions", relatedQuestions);
         return "question";
     }
 
