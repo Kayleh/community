@@ -98,6 +98,14 @@ public class PublishController {
 //                }
 //            }
 
+
+        String invalidList = TagCache.filterInvalid(tag);
+        if (StringUtils.isNotBlank(invalidList)){
+            model.addAttribute("error","输入非法标签:"+invalidList);
+            return "publish";
+        }
+
+
         User user = (User) request.getSession().getAttribute("user");
 
 //        if (user==null){

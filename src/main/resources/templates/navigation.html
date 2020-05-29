@@ -45,6 +45,9 @@
                     <li th:if="${session.user != null}">
                         <a href="/publish">提问</a>
                     </li>
+
+                    <li><a href="/profile/replies">通知 <span class="badge">42</span></a></li>
+
                     <li class="dropdown" th:if="${session.user != null}">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                            aria-expanded="false">
@@ -58,10 +61,12 @@
                             <li><a href="/logout">退出登录Quit</a></li>
                         </ul>
                     </li>
+
                     <!--                <li th:if="${session.user == null}">-->
                     <li th:unless="${session.user!=null}">
                         <a href="https://github.com/login/oauth/authorize?client_id=19ebcb4f921719bd4518&redirect_uri=http://localhost:8080/callback&scope=user&state=1">登录Login</a>
                     </li>
+
                 </ul>
             </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

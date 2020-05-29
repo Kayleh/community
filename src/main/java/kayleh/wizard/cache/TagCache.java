@@ -3,6 +3,7 @@ package kayleh.wizard.cache;
 import kayleh.wizard.community.dto.TagDTO;
 import org.apache.commons.lang3.StringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -44,10 +45,12 @@ public class TagCache {
         return tagDTOS;
     }
 
-    public boolean isValid(String tags){
+    public static String filterInvalid(String tags){
         String[] split = StringUtils.split(tags, ",");
         List<TagDTO> tagDTOS = get();
-        List<List<String>> tagList = tagDTOS.stream().flatMap(tag -> Stream.of(tag.getTags())).collect(Collectors.toList());
-        return true;
+       List<String> tagList = tagDTOS.stream().flatMap(tag -> tag.getTags().stream()).collect(Collectors.toList());
+        String invalidList = Arrays.stream(split).filter(t -> !tagList.contains(t)).collect(Collectors.joining(","));
+
+        return invalidList;
     }
 }
