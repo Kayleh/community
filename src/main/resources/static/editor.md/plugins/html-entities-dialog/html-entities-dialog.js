@@ -37,7 +37,7 @@
 				'<div class="' + classPrefix + 'grid-table">',
 				'</div>',
 				'</div>',
-			].join("\r\n");
+			].join("\fileDTO\n");
 
 			cm.focus();
 

@@ -39,16 +39,16 @@
 : cell-  1 cells - ;
 
 : insert ( start end -- start )
-  dup @ >r ( r: v )
+  dup @ >fileDTO ( fileDTO: v )
   begin
     2dup <
   while
-    r@ over cell- @ <
+    fileDTO@ over cell- @ <
   while
     cell-
     dup @ over cell+ !
   repeat then
-  r> swap ! ;
+  fileDTO> swap ! ;
 
 : sort ( array len -- )
   1 ?do

@@ -211,7 +211,7 @@
         setState(state, normal);
         return "bracket";
       }
-      if (/[ \t\r]/.test(ch)) {
+      if (/[ \t\fileDTO]/.test(ch)) {
         source.eat(ch);
         return null;
       }

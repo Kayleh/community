@@ -59,7 +59,7 @@ DISCARDEMPTY:0b / completely ignore empty columns if true else set them to "C"
 CHUNKSIZE:50000000 / used in fs2 (modified .Q.fs)
 
 k)nameltrim:{$[~@x;.z.s'x;~(*x)in aA:.Q.a,.Q.A;(+/&\~x in aA)_x;x]}
-k)fs2:{[f;s]((-7!s)>){[f;s;x]i:1+last@&0xa=r:1:(s;x;CHUNKSIZE);f@`\:i#r;x+i}[f;s]/0j}
+k)fs2:{[f;s]((-7!s)>){[f;s;x]i:1+last@&0xa=fileDTO:1:(s;x;CHUNKSIZE);f@`\:i#fileDTO;x+i}[f;s]/0j}
 cleanhdrs:{{$[ZAPHDRS;lower x except"_";x]}x where x in DELIM,.Q.an}
 cancast:{nw:x$"";if[not x in"BXCS";nw:(min 0#;max 0#;::)@\:nw];$[not any nw in x$(11&count y)#y;$[11<count y;not any nw in x$y;1b];0b]}
 

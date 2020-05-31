@@ -6118,9 +6118,9 @@
   // Remove a span from an array, returning undefined if no spans are
   // left (we don't store arrays for lines without spans).
   function removeMarkedSpan(spans, span) {
-    for (var r, i = 0; i < spans.length; ++i)
-      if (spans[i] != span) (r || (r = [])).push(spans[i]);
-    return r;
+    for (var fileDTO, i = 0; i < spans.length; ++i)
+      if (spans[i] != span) (fileDTO || (fileDTO = [])).push(spans[i]);
+    return fileDTO;
   }
   // Add a span to a line.
   function addMarkedSpan(line, span) {
@@ -8145,19 +8145,19 @@
 
   var range;
   if (document.createRange) range = function(node, start, end, endNode) {
-    var r = document.createRange();
-    r.setEnd(endNode || node, end);
-    r.setStart(node, start);
-    return r;
+    var fileDTO = document.createRange();
+    fileDTO.setEnd(endNode || node, end);
+    fileDTO.setStart(node, start);
+    return fileDTO;
   };
   else range = function(node, start, end) {
-    var r = document.body.createTextRange();
-    try { r.moveToElementText(node.parentNode); }
-    catch(e) { return r; }
-    r.collapse(true);
-    r.moveEnd("character", end);
-    r.moveStart("character", start);
-    return r;
+    var fileDTO = document.body.createTextRange();
+    try { fileDTO.moveToElementText(node.parentNode); }
+    catch(e) { return fileDTO; }
+    fileDTO.collapse(true);
+    fileDTO.moveEnd("character", end);
+    fileDTO.moveStart("character", start);
+    return fileDTO;
   };
 
   function removeChildren(e) {
@@ -8288,8 +8288,8 @@
     while (pos <= l) {
       var nl = string.indexOf("\n", pos);
       if (nl == -1) nl = string.length;
-      var line = string.slice(pos, string.charAt(nl - 1) == "\r" ? nl - 1 : nl);
-      var rt = line.indexOf("\r");
+      var line = string.slice(pos, string.charAt(nl - 1) == "\fileDTO" ? nl - 1 : nl);
+      var rt = line.indexOf("\fileDTO");
       if (rt != -1) {
         result.push(line.slice(0, rt));
         pos += rt + 1;
@@ -8299,7 +8299,7 @@
       }
     }
     return result;
-  } : function(string){return string.split(/\r\n?|\n/);};
+  } : function(string){return string.split(/\fileDTO\n?|\n/);};
 
   var hasSelection = window.getSelection ? function(te) {
     try { return te.selectionStart != te.selectionEnd; }
@@ -8476,7 +8476,7 @@
   // One-char codes used for character types:
   // L (L):   Left-to-Right
   // R (R):   Right-to-Left
-  // r (AL):  Right-to-Left Arabic
+  // fileDTO (AL):  Right-to-Left Arabic
   // 1 (EN):  European Number
   // + (ES):  European Number Separator
   // % (ET):  European Number Terminator
@@ -8501,7 +8501,7 @@
       if (code <= 0xf7) return lowTypes.charAt(code);
       else if (0x590 <= code && code <= 0x5f4) return "R";
       else if (0x600 <= code && code <= 0x6ed) return arabicTypes.charAt(code - 0x600);
-      else if (0x6ee <= code && code <= 0x8ac) return "r";
+      else if (0x6ee <= code && code <= 0x8ac) return "fileDTO";
       else if (0x2000 <= code && code <= 0x200b) return "w";
       else if (code == 0x200c) return "b";
       else return "L";
@@ -8540,8 +8540,8 @@
       // W3. Change all ALs to R.
       for (var i = 0, cur = outerType; i < len; ++i) {
         var type = types[i];
-        if (type == "1" && cur == "r") types[i] = "n";
-        else if (isStrong.test(type)) { cur = type; if (type == "r") types[i] = "R"; }
+        if (type == "1" && cur == "fileDTO") types[i] = "n";
+        else if (isStrong.test(type)) { cur = type; if (type == "fileDTO") types[i] = "R"; }
       }
 
       // W4. A single European separator between two European numbers

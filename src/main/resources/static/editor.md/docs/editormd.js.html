@@ -2928,7 +2928,7 @@
             var cm        = this.cm;
             var selection = cm.getSelection();
 
-            cm.replaceSelection("\r\n[========]\r\n");
+            cm.replaceSelection("\fileDTO\n[========]\fileDTO\n");
         },
 
         image : function() {
@@ -3549,7 +3549,7 @@
             tocContainer.wrap("&lt;div class=\"" + classPrefix + "toc-menu\">&lt;/div>&lt;br/>");
         }
         
-        tocContainer.html("&lt;ul class=\"markdown-toc-list\">&lt;/ul>").children(".markdown-toc-list").html(html.replace(/\r?\n?\&lt;ul\>\&lt;\/ul\>/g, ""));
+        tocContainer.html("&lt;ul class=\"markdown-toc-list\">&lt;/ul>").children(".markdown-toc-list").html(html.replace(/\fileDTO?\n?\&lt;ul\>\&lt;\/ul\>/g, ""));
         
         return tocContainer;
     };

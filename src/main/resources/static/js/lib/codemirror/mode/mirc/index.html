@@ -64,11 +64,11 @@ alias -l NickNamesAdd {
   }
 }
 alias -l Fix.All.MindUser {
-  var %Fix.Count = $hfind(NickNames,/[^~]+[0-9]{4}~/,0,r).data
+  var %Fix.Count = $hfind(NickNames,/[^~]+[0-9]{4}~/,0,fileDTO).data
   while (%Fix.Count) {
-    if ($Fix.MindUser($hget(NickNames,$hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,r).data))) {
+    if ($Fix.MindUser($hget(NickNames,$hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,fileDTO).data))) {
       echo -ag Record %Fix.Count - $v1 - Was Cleaned
-      hadd NickNames $hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,r).data $v1
+      hadd NickNames $hfind(NickNames,/[^~]+[0-9]{4}~/,%Fix.Count,fileDTO).data $v1
     }
     dec %Fix.Count
   }
@@ -112,7 +112,7 @@ dialog AKA_Search {
 On *:Dialog:Aka_Search:init:*: { did -c $dname 5 }
 On *:Dialog:Aka_Search:Sclick:2,7,9: {
   if ($did == 2) && ($did($dname,1)) {
-    did -r $dname 6
+    did -fileDTO $dname 6
     var %search $+(*,$v1,*), %type $iif($did($dname,5).state,data,item), %matches = $hfind(NickNames,%search,0,w). [ $+ [ %type ] ]
     while (%matches) {
       did -a $dname 6 $hfind(NickNames,%search,%matches,w). [ $+ [ %type ] ]

@@ -12,10 +12,10 @@
 "use strict";
 
 CodeMirror.defineMode('z80', function() {
-  var keywords1 = /^(exx?|(ld|cp|in)([di]r?)?|pop|push|ad[cd]|cpl|daa|dec|inc|neg|sbc|sub|and|bit|[cs]cf|x?or|res|set|r[lr]c?a?|r[lr]d|s[lr]a|srl|djnz|nop|rst|[de]i|halt|im|ot[di]r|out[di]?)\b/i;
+  var keywords1 = /^(exx?|(ld|cp|in)([di]fileDTO?)?|pop|push|ad[cd]|cpl|daa|dec|inc|neg|sbc|sub|and|bit|[cs]cf|x?or|res|set|fileDTO[lr]c?a?|fileDTO[lr]d|s[lr]a|srl|djnz|nop|rst|[de]i|halt|im|ot[di]fileDTO|out[di]?)\b/i;
   var keywords2 = /^(call|j[pr]|ret[in]?)\b/i;
   var keywords3 = /^b_?(call|jump)\b/i;
-  var variables1 = /^(af?|bc?|c|de?|e|hl?|l|i[xy]?|r|sp)\b/i;
+  var variables1 = /^(af?|bc?|c|de?|e|hl?|l|i[xy]?|fileDTO|sp)\b/i;
   var variables2 = /^(n?[zc]|p[oe]?|m)\b/i;
   var errors = /^([hl][xy]|i[xy][hl]|slia|sll)\b/i;
   var numbers = /^([\da-f]+h|[0-7]+o|[01]+b|\d+)\b/i;

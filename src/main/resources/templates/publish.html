@@ -42,11 +42,11 @@
                 </div>
 
                 <div class="form-group" id="question-editor">
-                    <label for="description">问题补充（必填，请参照右侧提示）:</label>
-                    <textarea name="description" class="form-control" th:text="${description}" id="description"
-                              cols="30" rows="10"
-                              style="display: none">
-                    </textarea>
+                    <label for="description">问题补充 (必填，请参照右侧提示):</label>
+                    <textarea name="description" id="description" th:text="${description}" style="display:none;"
+                              class="form-control"
+                              cols="30"
+                              rows="10"></textarea>
                 </div>
                 <script type="text/javascript">
                     $(function () {
@@ -55,8 +55,11 @@
                             height: 350,
                             path: "/editor.md/lib/",
                             delay: 0,
-                            watch: true,
-                            placeholder: "请输入问题描述"
+                            watch: false,
+                            placeholder: "请输入问题描述",
+                            imageUpload: true,
+                            imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
+                            imageUploadURL: "/file/upload",
                         });
                     });
                 </script>

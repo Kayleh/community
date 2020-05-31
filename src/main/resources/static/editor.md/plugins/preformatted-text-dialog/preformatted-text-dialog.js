@@ -76,7 +76,7 @@
                             codeTexts = codeTexts.join("\n");
                             
                             if (cursor.ch !== 0) {
-                                codeTexts = "\r\n\r\n" + codeTexts;
+                                codeTexts = "\fileDTO\n\fileDTO\n" + codeTexts;
                             }
 
                             cm.replaceSelection(codeTexts);

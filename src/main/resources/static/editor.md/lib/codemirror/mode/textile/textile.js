@@ -76,7 +76,7 @@
     }
 
     if (ch === "(") {
-      var spec = stream.match(/^(r|tm|c)\)/);
+      var spec = stream.match(/^(fileDTO|tm|c)\)/);
       if (spec)
         return tokenStylesWith(state, TOKEN_STYLES.specialChar);
     }

@@ -49,7 +49,7 @@
                 cmModePath + "python/python",
                 cmModePath + "perl/perl",
                 cmModePath + "lua/lua",
-                cmModePath + "r/r", 
+                cmModePath + "fileDTO/fileDTO",
                 cmModePath + "ruby/ruby", 
                 cmModePath + "rst/rst",
                 cmModePath + "smartymixed/smartymixed",
@@ -3170,7 +3170,7 @@
             var cm        = this.cm;
             var selection = cm.getSelection();
 
-            cm.replaceSelection("\r\n[========]\r\n");
+            cm.replaceSelection("\fileDTO\n[========]\fileDTO\n");
         },
 
         image : function() {
@@ -3796,7 +3796,7 @@
             tocContainer.wrap("<div class=\"" + classPrefix + "toc-menu\"></div><br/>");
         }
         
-        tocContainer.html("<ul class=\"markdown-toc-list\"></ul>").children(".markdown-toc-list").html(html.replace(/\r?\n?\<ul\>\<\/ul\>/g, ""));
+        tocContainer.html("<ul class=\"markdown-toc-list\"></ul>").children(".markdown-toc-list").html(html.replace(/\fileDTO?\n?\<ul\>\<\/ul\>/g, ""));
         
         return tocContainer;
     };

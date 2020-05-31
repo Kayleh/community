@@ -67,7 +67,7 @@ CodeMirror.defineMode("ruby", function(config) {
       var style = "string", embed = true;
       if (stream.eat("s")) style = "atom";
       else if (stream.eat(/[WQ]/)) style = "string";
-      else if (stream.eat(/[r]/)) style = "string-2";
+      else if (stream.eat(/[fileDTO]/)) style = "string-2";
       else if (stream.eat(/[wxq]/)) { style = "string"; embed = false; }
       var delim = stream.eat(/[^\w\s=]/);
       if (!delim) return "operator";

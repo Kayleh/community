@@ -33,13 +33,13 @@ this is a multiline comment!
 //  this is a singleline comment!
 
 import ut;
-r := 
+fileDTO :=
   record
    string22 s1 := '123';
    integer4 i1 := 123;
   end;
 #option('tmp', true);
-d := dataset('tmp::qb', r, thor);
+d := dataset('tmp::qb', fileDTO, thor);
 output(d);
 </textarea></form>
     <script>

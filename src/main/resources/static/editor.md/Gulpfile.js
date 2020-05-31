@@ -31,9 +31,9 @@ var headerComment = ["/*",
 					" * {@link       <%= pkg.homepage %>}",
 					" * @updateTime  <%= pkg.today('Y-m-d') %>",
 					" */", 
-					"\r\n"].join("\r\n");
+					"\fileDTO\n"].join("\fileDTO\n");
 
-var headerMiniComment = "/*! <%= pkg.name %> v<%= pkg.version %> | <%= fileName(file) %> | <%= pkg.description %> | MIT License | By: <%= pkg.author %> | <%= pkg.homepage %> | <%=pkg.today('Y-m-d') %> */\r\n";
+var headerMiniComment = "/*! <%= pkg.name %> v<%= pkg.version %> | <%= fileName(file) %> | <%= pkg.description %> | MIT License | By: <%= pkg.author %> | <%= pkg.homepage %> | <%=pkg.today('Y-m-d') %> */\fileDTO\n";
 
 var scssTask = function(fileName, path) {
     
@@ -121,7 +121,7 @@ gulp.task("amd", function() {
         '                cmModePath + "python/python",', 
         '                cmModePath + "perl/perl",',
         '                cmModePath + "lua/lua",', 
-        '                cmModePath + "r/r", ',
+        '                cmModePath + "fileDTO/fileDTO", ',
         '                cmModePath + "ruby/ruby", ',
         '                cmModePath + "rst/rst",',
         '                cmModePath + "smartymixed/smartymixed",', 
@@ -156,7 +156,7 @@ gulp.task("amd", function() {
         '            ];',
         '',
         '            define(codeMirrorModules, factory);'
-    ].join("\r\n");
+    ].join("\fileDTO\n");
     
     var replaceText2 = [
         "if (typeof define == \"function\" && define.amd) {",
@@ -169,7 +169,7 @@ gulp.task("amd", function() {
         "       flowchart  = arguments[6];",
         "       CodeMirror = arguments[9];",
         "   }"
-    ].join("\r\n");
+    ].join("\fileDTO\n");
     
     gulp.src("src/editormd.js")
         .pipe(rename({ suffix: ".amd" }))
@@ -223,7 +223,7 @@ var codeMirror = {
         "python",
         "perl",
         "lua",
-        "r", 
+        "fileDTO",
         "ruby", 
         "rst",
         "smartymixed",

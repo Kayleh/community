@@ -649,7 +649,7 @@ _.template = (str, data) ->
   fn = new Function 'obj',
     'var p=[],print=function(){p.push.apply(p,arguments);};' +
     'with(obj||{}){p.push(\'' +
-    str.replace(/\r/g, '\\r')
+    str.replace(/\fileDTO/g, '\\fileDTO')
        .replace(/\n/g, '\\n')
        .replace(/\t/g, '\\t')
        .replace(endMatch,"���")
