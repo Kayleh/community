@@ -132,7 +132,7 @@
                th:classappend="${section == 'replies'}?'active':''">
                 最新回复
                 <!--未读数-->
-                <span class="badge" th:text="${unreadCount}"></span>
+                <span class="badge" th:text="${session.unreadCount}"></span>
             </a>
 
         </div>
