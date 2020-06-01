@@ -1,5 +1,6 @@
 package kayleh.wizard.community.controller;
 
+import com.aliyun.oss.OSSClient;
 import kayleh.wizard.community.dto.FileDTO;
 import kayleh.wizard.community.provider.AliCloudProvider;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,8 @@ public class FileController {
     @Autowired
     private AliCloudProvider aliCloudProvider;
 
+
+
     @RequestMapping("/file/upload")
     @ResponseBody
     public FileDTO upload(HttpServletRequest request) {
@@ -29,6 +32,7 @@ public class FileController {
         try {
             //getOriginalFilename上传时的名字
             String fileName = aliCloudProvider.upload(file.getInputStream(), file.getContentType(), file.getOriginalFilename());
+
             FileDTO fileDTO = new FileDTO();
             fileDTO.setSuccess(1);
             fileDTO.setUrl(fileName);

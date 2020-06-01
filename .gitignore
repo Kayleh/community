@@ -15,6 +15,7 @@ README.md
 .sts4-cache
 
 ### IntelliJ IDEA ###
+application.properties
 .idea
 *.iws
 *.iml

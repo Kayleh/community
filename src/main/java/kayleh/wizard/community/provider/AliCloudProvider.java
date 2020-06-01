@@ -1,6 +1,7 @@
 package kayleh.wizard.community.provider;
 
 import com.aliyun.oss.OSS;
+import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.OSSClientBuilder;
 import com.aliyun.oss.internal.OSSHeaders;
 import com.aliyun.oss.model.*;
@@ -14,6 +15,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.InputStream;
+import java.net.URL;
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -58,16 +61,32 @@ public class AliCloudProvider implements InitializingBean {
 
             // 上传文件流。
 
-            ossClient.putObject(bucketName, generatedFileName, fileStream);
+            PutObjectResult response = ossClient.putObject(bucketName, generatedFileName, fileStream);
+
+
+
+//            if (response != null && response.get() == 0) {
+//                String url = UfileClient.object(objectAuthorization, config)
+//                        .getDownloadUrlFromPrivateBucket(generatedFileName, bucketName, expires)
+//                        .createUrl();
+//                return url;
+
+            // 设置URL过期时间为10年  3600l* 1000*24*365*10
+            Date expiration = new Date(new Date().getTime() + 3600l * 1000 * 24 * 365 * 10);
+            // 生成URL
+            URL url = ossClient.generatePresignedUrl(bucketName, generatedFileName, expiration);
 
 
             ossClient.shutdown();
 
-            return generatedFileName;
+            if (url != null) {
+                return url.toString();
+            }
+            return null;
 
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            throw new RuntimeException();
 //            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
         }
     }
