@@ -52,8 +52,12 @@ public class QuestionService {
         //所有的数量
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
+
         Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
 
+//        if (totalCount==null){
+//            throw
+//        }
 
         if (totalCount % size == 0) {
             totalPage = totalCount / size;

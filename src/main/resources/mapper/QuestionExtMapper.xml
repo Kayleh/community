@@ -48,7 +48,7 @@
             resultType="java.lang.Integer">
         select count(*) from question
         <where>
-            <if test="search!=null">
+            <if test="search != '' and search != null">
                 and title regexp #{search}
             </if>
         </where>
@@ -58,7 +58,7 @@
             resultMap="BaseResultMap">
         select * from question
         <where>
-            <if test="search!=null">
+            <if test="search != '' and search != null">
                 and title regexp #{search}
             </if>
         </where>
