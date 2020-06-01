@@ -1,5 +1,6 @@
 package kayleh.wizard.community.mapper;
 
+import kayleh.wizard.community.dto.QuestionQueryDTO;
 import kayleh.wizard.community.model.Question;
 
 import java.util.List;
@@ -14,4 +15,8 @@ public interface QuestionExtMapper {
     int inView(Question record);
     int inCommentCount(Question record);
     List<Question> selectRelated(Question question);
+
+    Integer countBySearch(QuestionQueryDTO questionQueryDTO);
+
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO1);
 }

@@ -2,6 +2,7 @@ package kayleh.wizard.community.service;
 
 import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
+import kayleh.wizard.community.dto.QuestionQueryDTO;
 import kayleh.wizard.community.exception.CustomizeErrorCode;
 import kayleh.wizard.community.exception.CustomizeException;
 import kayleh.wizard.community.mapper.QuestionExtMapper;
@@ -35,13 +36,23 @@ public class QuestionService {
     QuestionExtMapper questionExtMapper;
 
 
-    public PaginationDTO list(Integer page, Integer size) {
+    public PaginationDTO list(String search,Integer page, Integer size) {
+
+        //搜索
+        if (StringUtils.isNotBlank(search)){
+            String[] tags = StringUtils.split(search," ");
+            search = Arrays.stream(tags).collect(Collectors.joining("|"));
+        }
+
+
 
         PaginationDTO paginationDTO = new PaginationDTO();
         Integer totalPage;
 
         //所有的数量
-        Integer totalCount = (int)questionMapper.countByExample(new QuestionExample());
+        QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+        questionQueryDTO.setSearch(search);
+        Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
 
 
         if (totalCount % size == 0) {
@@ -65,7 +76,10 @@ public class QuestionService {
 
         QuestionExample questionExample = new QuestionExample();
         questionExample.setOrderByClause("gmt_create desc");
-        List<Question> questions = questionMapper.selectByExampleWithRowbounds(questionExample,new RowBounds(offset,size));
+
+        questionQueryDTO.setSize(size);
+        questionQueryDTO.setPage(offset);
+        List<Question> questions = questionExtMapper.selectBySearch(questionQueryDTO);
 
 
         List<QuestionDTO> questionDTOList = new ArrayList<>();

@@ -1,6 +1,8 @@
 package kayleh.wizard.community.mapper;
 
 import java.util.List;
+
+import kayleh.wizard.community.dto.QuestionQueryDTO;
 import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.model.QuestionExample;
 import org.apache.ibatis.annotations.Param;

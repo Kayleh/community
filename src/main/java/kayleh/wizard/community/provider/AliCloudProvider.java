@@ -24,7 +24,7 @@ import java.util.UUID;
  * @Date: 2020/5/31 14:54
  */
 @Service
-public class AliCloudProvider implements InitializingBean {
+public class AliCloudProvider{
 
     // Endpoint以杭州为例，其它Region请按实际情况填写。
     private  String endpoint = "http://oss-cn-shenzhen.aliyuncs.com";
@@ -44,36 +44,19 @@ public class AliCloudProvider implements InitializingBean {
         if (filePaths.length > 1) {
             generatedFileName = UUID.randomUUID().toString() + "." + filePaths[filePaths.length - 1];
         } else {
-            return null;
-//            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
         }
         try {
             OSS ossClient = new OSSClientBuilder().build(endpoint, accessKeyId, accessKeySecret);
-//            ObjectAuthorization objectAuthorization = new UfileObjectLocalAuthorization(publicKey, privateKey);
-//            ObjectConfig config = new ObjectConfig(region, suffix);
-//            PutObjectResultBean response = UfileClient.object(objectAuthorization, config)
-//                    .putObject(fileStream, mimeType)
-//                    .nameAs(generatedFileName)
-//                    .toBucket(bucketName)
-//                    .setOnProgressListener((bytesWritten, contentLength) -> {
-//                    })
-//                    .execute();
 
             // 上传文件流。
+            ossClient.putObject(bucketName, generatedFileName, fileStream);
 
-            PutObjectResult response = ossClient.putObject(bucketName, generatedFileName, fileStream);
-
-
-
-//            if (response != null && response.get() == 0) {
-//                String url = UfileClient.object(objectAuthorization, config)
-//                        .getDownloadUrlFromPrivateBucket(generatedFileName, bucketName, expires)
-//                        .createUrl();
-//                return url;
 
             // 设置URL过期时间为10年  3600l* 1000*24*365*10
             Date expiration = new Date(new Date().getTime() + 3600l * 1000 * 24 * 365 * 10);
-            // 生成URL
+
+            // 生成URL（阿里云的资源访问路径）
             URL url = ossClient.generatePresignedUrl(bucketName, generatedFileName, expiration);
 
 
@@ -86,15 +69,14 @@ public class AliCloudProvider implements InitializingBean {
 
         } catch (Exception e) {
             e.printStackTrace();
-            throw new RuntimeException();
-//            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
+            throw new CustomizeException(CustomizeErrorCode.FILE_UPLOAD_FAIL);
         }
     }
 
-    @Override
-    public void afterPropertiesSet() throws Exception {
-
-    }
+//    @Override
+//    public void afterPropertiesSet() throws Exception {
+//
+//    }
 
 
 //    // 创建OSSClient实例。

@@ -75,6 +75,8 @@ public class CommentService {
             if (question == null) {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
+            //insert没有传commentCount导致commentCount被覆盖成null
+            comment.setCommentCount(0);
             commentMapper.insert(comment);
             //评论数加1
             question.setCommentCount(1);
@@ -94,6 +96,10 @@ public class CommentService {
     }
 
     private void createNotify(Comment comment, Long receiver, String notifierName, String outerTitle, NotificationTypeEnum notificationType, Long outerId) {
+        //如果评论的人是自己 接受通知的人和触发通知的人是同一个人
+        if (receiver==comment.getCommentator()){
+                return;
+        }
         //回复通知
         Notification notification = new Notification();
         notification.setGmtCreate(System.currentTimeMillis());
