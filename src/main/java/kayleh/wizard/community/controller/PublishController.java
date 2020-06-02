@@ -1,6 +1,6 @@
 package kayleh.wizard.community.controller;
 
-import kayleh.wizard.cache.TagCache;
+import kayleh.wizard.community.cache.TagCache;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.model.User;

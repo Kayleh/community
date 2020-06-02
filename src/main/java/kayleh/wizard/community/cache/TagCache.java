@@ -1,14 +1,12 @@
-package kayleh.wizard.cache;
+package kayleh.wizard.community.cache;
 
 import kayleh.wizard.community.dto.TagDTO;
 import org.apache.commons.lang3.StringUtils;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 /**
  * @Author: Wizard

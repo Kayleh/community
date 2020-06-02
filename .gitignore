@@ -16,6 +16,7 @@ README.md
 .sts4-cache
 
 ### IntelliJ IDEA ###
+application-production.properties
 application.properties
 .idea
 *.iws
