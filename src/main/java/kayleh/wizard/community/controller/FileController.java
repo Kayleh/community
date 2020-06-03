@@ -1,6 +1,6 @@
 package kayleh.wizard.community.controller;
 
-import com.aliyun.oss.OSSClient;
+//import com.aliyun.oss.OSSClient;
 import kayleh.wizard.community.dto.FileDTO;
 import kayleh.wizard.community.provider.AliCloudProvider;
 import lombok.extern.slf4j.Slf4j;
