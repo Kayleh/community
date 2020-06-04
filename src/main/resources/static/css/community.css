@@ -1,9 +1,10 @@
 body{
+    font: 15px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
     background-color: #efefef;
 }
 .main{
     background-color: white;
-    margin: 50px 100px;
+    margin: 70px 200px;
 }
 .btn-publish{
     float: right;
