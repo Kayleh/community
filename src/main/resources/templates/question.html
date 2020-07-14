@@ -47,6 +47,7 @@
                 <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" id="question-view" >
                     <textarea style="display:none;" th:text="${question.description}"></textarea>
                 </div>
+
                 <script type="text/javascript">
                     $(function() {
                         var testView = editormd.markdownToHTML("question-view", {

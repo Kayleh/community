@@ -36,14 +36,13 @@ public class QuestionService {
     QuestionExtMapper questionExtMapper;
 
 
-    public PaginationDTO list(String search,Integer page, Integer size) {
+    public PaginationDTO list(String search, String tag, Integer page, Integer size) {
 
         //搜索
-        if (StringUtils.isNotBlank(search)){
-            String[] tags = StringUtils.split(search," ");
+        if (StringUtils.isNotBlank(search)) {
+            String[] tags = StringUtils.split(search, " ");
             search = Arrays.stream(tags).collect(Collectors.joining("|"));
         }
-
 
 
         PaginationDTO paginationDTO = new PaginationDTO();
@@ -52,6 +51,12 @@ public class QuestionService {
         //所有的数量
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
         questionQueryDTO.setSearch(search);
+
+        questionQueryDTO.setTag(tag);
+//        if (StringUtils.isNotBlank(tag)) {
+//
+//        }
+
 
         Integer totalCount = questionExtMapper.countBySearch(questionQueryDTO);
 
@@ -66,7 +71,7 @@ public class QuestionService {
         }
 
 
-        paginationDTO.setPagination(totalCount,page,size);
+        paginationDTO.setPagination(totalCount, page, size);
 
         if (page < 1) {
             page = 1;
@@ -90,7 +95,6 @@ public class QuestionService {
         for (Question question : questions) {
 
 
-
             User user = userMapper.selectByPrimaryKey(question.getCreator());
             QuestionDTO questionDTO = new QuestionDTO();
             BeanUtils.copyProperties(question, questionDTO);
@@ -112,7 +116,7 @@ public class QuestionService {
         //所有的数量
         QuestionExample example = new QuestionExample();
         example.createCriteria().andCreatorEqualTo(userId);
-        Integer totalCount = (int)questionMapper.countByExample(example);
+        Integer totalCount = (int) questionMapper.countByExample(example);
 
 
         if (totalCount % size == 0) {
@@ -128,7 +132,7 @@ public class QuestionService {
             page = totalPage;
         }
 
-        paginationDTO.setPagination(totalPage,page);
+        paginationDTO.setPagination(totalPage, page);
 
 
         // size*(page-1)
@@ -157,7 +161,7 @@ public class QuestionService {
 
     public QuestionDTO getById(Long id) {
         Question question = questionMapper.selectByPrimaryKey(id);
-        if (question==null){
+        if (question == null) {
             throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
         }
         QuestionDTO questionDTO = new QuestionDTO();
@@ -171,7 +175,7 @@ public class QuestionService {
     }
 
     public void createOrUpdate(Question question) {
-        if (question.getId()==null){
+        if (question.getId() == null) {
             //创建
             question.setGmtCreate(System.currentTimeMillis());
             question.setGmtModified(System.currentTimeMillis());
@@ -180,7 +184,7 @@ public class QuestionService {
             question.setLikeCount(0);
             //用insertSelective
             questionMapper.insertSelective(question);
-        }else {
+        } else {
             //更新
 //            question.setGmtModified(System.currentTimeMillis());
 
@@ -192,7 +196,7 @@ public class QuestionService {
             QuestionExample example = new QuestionExample();
             example.createCriteria().andIdEqualTo(question.getId());
             int update = questionMapper.updateByExampleSelective(updateQuestion, example);
-            if (update!=1){
+            if (update != 1) {
                 throw new CustomizeException(CustomizeErrorCode.QUESTION_NOT_FOUND);
             }
         }
@@ -208,10 +212,10 @@ public class QuestionService {
     }
 
     public List<QuestionDTO> selectRelated(QuestionDTO questionDTO) {
-        if (StringUtils.isBlank(questionDTO.getTag())){
+        if (StringUtils.isBlank(questionDTO.getTag())) {
             return new ArrayList<>();
         }
-        String[] tags = StringUtils.split(questionDTO.getTag(),",");
+        String[] tags = StringUtils.split(questionDTO.getTag(), ",");
         String regexpTag = Arrays.stream(tags).collect(Collectors.joining("|"));
         Question question = new Question();
         question.setId(questionDTO.getId());
