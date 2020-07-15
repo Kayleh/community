@@ -4,7 +4,7 @@ body{
 }
 .main{
     background-color: white;
-    margin: 70px 200px;
+    margin: 70px 50px;
 }
 .btn-publish{
     float: right;
@@ -15,7 +15,7 @@ body{
     height: 38px;
 }
 .media-body{
-    padding-top: 10px;
+    /*padding-top: 10px;*/
 }
 .text-desc {
     font-size: 12px;

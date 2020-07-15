@@ -1,6 +1,7 @@
 package kayleh.wizard.community.controller;
 
 import kayleh.wizard.community.cache.HotTagCache;
+import kayleh.wizard.community.cache.TagCache;
 import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,7 +32,7 @@ public class IndexController {
     public String index(//HttpServletRequest request,
                         Model model,
                         @RequestParam(name = "page", defaultValue = "1") Integer page,
-                        @RequestParam(name = "size", defaultValue = "5") Integer size,
+                        @RequestParam(name = "size", defaultValue = "10") Integer size,
                         @RequestParam(name = "search", required = false) String search,
                         @RequestParam(name = "tag", required = false) String tag
     ) {
@@ -56,6 +57,8 @@ public class IndexController {
 
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
+
+        model.addAttribute("alltags", TagCache.get());
 
         model.addAttribute("tags", tags);
         model.addAttribute("tag", tag);
