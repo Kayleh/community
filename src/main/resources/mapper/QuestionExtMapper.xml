@@ -67,8 +67,20 @@
             <if test="tag != '' and tag != null">
                 and tag regexp #{tag}
             </if>
+            <if test="zero == 1">
+                and  COMMENT_COUNT = 0
+            </if>
         </where>
         order by gmt_create desc limit #{page},#{size}
     </select>
 
+
+<!--    <select id="selectZero" parameterType="kayleh.wizard.community.dto.QuestionQueryDTO"-->
+<!--            resultMap="BaseResultMap">-->
+<!--        select * from question-->
+<!--        <where>-->
+<!--            COMMENT_COUNT = 0-->
+<!--        </where>-->
+<!--        order by gmt_create desc limit #{page},#{size}-->
+<!--    </select>-->
 </mapper>

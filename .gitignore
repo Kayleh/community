@@ -16,7 +16,7 @@ README.md
 .sts4-cache
 
 ### IntelliJ IDEA ###
-#OSSClient.java
+OSSClient.java
 application-production.properties
 application.properties
 .idea

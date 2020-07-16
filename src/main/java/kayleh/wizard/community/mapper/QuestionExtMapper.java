@@ -1,5 +1,6 @@
 package kayleh.wizard.community.mapper;
 
+import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.dto.QuestionQueryDTO;
 import kayleh.wizard.community.model.Question;
 
@@ -18,5 +19,7 @@ public interface QuestionExtMapper {
 
     Integer countBySearch(QuestionQueryDTO questionQueryDTO);
 
-    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO1);
+    List<Question> selectBySearch(QuestionQueryDTO questionQueryDTO);
+
+//    List<Question> selectZero(QuestionQueryDTO questionQueryDTO);
 }

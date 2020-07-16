@@ -1,6 +1,7 @@
 body{
     font: 15px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;
-    background-color: #efefef;
+    /*background-color: #efefef;*/
+    background-color: mediumpurple;
 }
 .main{
     background-color: white;
@@ -114,3 +115,10 @@ body{
     padding: 10px 25%;
     color: #666;
 }
+
+
+.fly-panel{margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
+.fly-panel[pad20]{padding: 20px;}
+.fly-panel-title{position: relative; height: 50px; line-height: 50px; padding: 0 15px; border-bottom: 1px dotted #E9E9E9; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
+.fly-panel-main{padding: 10px 15px;}
+.layui-anim{-webkit-animation-duration:.3s;animation-duration:.3s;-webkit-animation-fill-mode:both;animation-fill-mode:both}

@@ -12,4 +12,5 @@ public class QuestionQueryDTO {
     private String tag;
     private Integer page;
     private Integer size;
+    private Integer zero;// 1表示选择
 }

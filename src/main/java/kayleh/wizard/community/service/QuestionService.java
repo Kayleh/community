@@ -36,7 +36,7 @@ public class QuestionService {
     QuestionExtMapper questionExtMapper;
 
 
-    public PaginationDTO list(String search, String tag, Integer page, Integer size) {
+    public PaginationDTO list(String search, String tag, Integer page, Integer size, Integer zero) {
 
         //搜索
         if (StringUtils.isNotBlank(search)) {
@@ -50,9 +50,14 @@ public class QuestionService {
 
         //所有的数量
         QuestionQueryDTO questionQueryDTO = new QuestionQueryDTO();
+
         questionQueryDTO.setSearch(search);
 
+
         questionQueryDTO.setTag(tag);
+
+
+        questionQueryDTO.setZero(zero);
 //        if (StringUtils.isNotBlank(tag)) {
 //
 //        }
