@@ -16,6 +16,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
     <link rel="stylesheet" href="css/community.css">
 </head>
 
@@ -29,6 +30,19 @@
         }
 
     }
+    // //<!CDATA[
+    // var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径
+    // bodyBgs[0] = "images/01_bg.jpg";
+    // bodyBgs[1] = "images/02_bg.jpg";
+    // bodyBgs[2] = "images/03_bg.jpg";
+    // bodyBgs[3] = "images/04_bg.jpg";
+    //
+    // var randomBgIndex = Math.round(Math.random() * 4);
+    //
+    // //输出随机的背景图
+    // document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0}</style>');
+    // //]]>
+
 </script>
 <style>
     .community-tag {
@@ -45,6 +59,7 @@
 </style>
 <body>
 <div th:insert="navigation::nav"></div>
+
 
 <div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12">
     <div class="container-fluid main">
@@ -182,7 +197,7 @@
         <div class="column">
             <!--            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" style="font-size: 15px">-->
             <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-fire"
-                                                             aria-hidden="true"></span>热门话题</h3>
+                                                             aria-hidden="true"></span> 热门话题</h3>
             <ul class="fly-panel-main fly-list-static " id="tags-wrapper">
                 <li class="layui-anim community-tag" th:each="tag:${HotTags}">
                     <!--                                <a href="/web/tag/java" class="tag-active ">java (70)</a>-->
@@ -200,7 +215,7 @@
             <hr class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
             <!--                <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" style="font-size: 15px">-->
             <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-eye-open"
-                                                             aria-hidden="true"></span>站长博客</h3>
+                                                             aria-hidden="true"></span> 站长博客</h3>
             <a href="https://kayleh.github.io"
                style="font-size: 16px;margin-left: 15px"> Kayleh.github.io</a>
         </div>
@@ -254,7 +269,7 @@
                 <div>
                     <div class="fly-panel">
                         <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-globe"
-                                                                         aria-hidden="true"></span>全部标签</h3>
+                                                                         aria-hidden="true"></span> 全部标签</h3>
                         <ul class="fly-panel-main fly-list-static " id="tags-wrapper">
                             <li class="layui-anim community-tag" th:each="tag:${alltags}">
                                 <!--                                <a href="/web/tag/java" class="tag-active ">java (70)</a>-->
@@ -263,7 +278,7 @@
                                         th:href="@{/(page=1,search=${search},tag=${tag},sort=${sort},zero=${zero})}"
                                         th:text="${tag}">
                                 </a>
-<!--                                <span class="glyphicon glyphicon-fire" style="color: red" aria-hidden="true">Hot</span>-->
+                                <!--                                <span class="glyphicon glyphicon-fire" style="color: red" aria-hidden="true">Hot</span>-->
                             </li>
                             <!--                            <li class="layui-anim community-tag">-->
                             <!--                                <a href="/web/tag/测试">测试 (72)</a>-->
@@ -276,6 +291,24 @@
     </div>
 </div>
 
+
+<div class="col-lg-2 col-mg-12 col-sm-12 col-xs-12" style="font-size: 15px">
+    <div class="container-fluid main">
+        <div class="column">
+            <div class="row">
+                <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-leaf"
+                                                                 aria-hidden="true"></span> Learning</h3>
+                <ul>
+                    <li>
+                        <a href="https://www.bilibili.com/video/BV1KW411u7vy/?spm_id_from=333.788.videocard.1">MySQl高级</a>
+                    </li>
+                    <li>JVM</li>
+                    <li><a href="https://www.nowcoder.com/tutorial/94/d96fa15a169c44e9a94dda690f27da28">面试题</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
     <!--页尾-->

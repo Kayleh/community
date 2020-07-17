@@ -61,6 +61,8 @@ public class IndexController {
         model.addAttribute("pagination", pagination);
         model.addAttribute("search", search);
 
+
+
         List<TagDTO> tagDTOS = TagCache.get();
         List<String> tags = new ArrayList<>();
         for (TagDTO tagDTO : tagDTOS) {
@@ -68,11 +70,10 @@ public class IndexController {
             tags.addAll(tags1);
         }
 
-
         model.addAttribute("alltags", tags);
         model.addAttribute("zero", zero);
         model.addAttribute("HotTags", HotTags);
-        model.addAttribute("tag", tag);
+//        model.addAttribute("tag", tag);
         return "index";
     }
 }

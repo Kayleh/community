@@ -25,6 +25,7 @@ public class ProfileController {
     @Autowired
     private NotificationService notificationService;
 
+
     @GetMapping("/profile/{action}")
     public String profile(@PathVariable("action") String action, Model model, HttpServletRequest request,
                           @RequestParam(name = "page", defaultValue = "1") Integer page,
@@ -74,4 +75,6 @@ public class ProfileController {
 
         return "profile";
     }
+
+
 }

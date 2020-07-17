@@ -56,7 +56,7 @@
                             path: "/editor.md/lib/",
                             delay: 0,
                             watch: false,
-                            placeholder: "请输入问题描述",
+                            placeholder: "请输入问题描述(支持MarkDown语法)",
                             imageUpload: true,
                             imageFormats: ["jpg", "jpeg", "gif", "png", "bmp", "webp"],
                             imageUploadURL: "/file/upload",
@@ -74,7 +74,7 @@
                            class="form-control"
                            th:value="${tag}"
                            id="tag" name="tag"
-                           placeholder="输入标签...."
+                           placeholder="选择问题的标签...."
                            autocomplete="off"
                            onclick="showSelectTag()">
 
