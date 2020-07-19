@@ -17,7 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
-<!--    <script src="../js/community.js" type="application/javascript"></script>-->
+    <!--    <script src="../js/community.js" type="application/javascript"></script>-->
     <link rel="stylesheet" href="../css/community.css">
     <!--    在同级目录找资源，这里是profile/questions/所以找不到-->
 </head>
@@ -48,6 +48,12 @@
                              th:src="${session.user!=null?session.user.avatarUrl:'/images/img/default_avatar.png'}">
                     </a>
                     <span style="font-size: 20px" th:text="${session.user!=null?session.user.name:'匿名用户'}"></span>
+                    <p></p>
+                    <p>已加入社区
+                        <span
+                                th:text="${#dates.format(userCreateTime,'dd')}">
+                        </span>天
+                    </p>
                 </div>
             </div>
 
