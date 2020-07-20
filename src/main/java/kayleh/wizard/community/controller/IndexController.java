@@ -4,6 +4,7 @@ import kayleh.wizard.community.cache.HotTagCache;
 import kayleh.wizard.community.cache.TagCache;
 import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.TagDTO;
+import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -69,6 +70,12 @@ public class IndexController {
             List<String> tags1 = tagDTO.getTags();
             tags.addAll(tags1);
         }
+
+        //用户创建时间
+//        Long gmtCreate = user.getGmtCreate();
+        long l = System.currentTimeMillis();
+        model.addAttribute("Time", l );
+
 
         model.addAttribute("alltags", tags);
         model.addAttribute("zero", zero);
