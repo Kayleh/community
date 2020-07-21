@@ -89,6 +89,10 @@
 </script>
 
 <style>
+    .shadow {
+        box-shadow: 10px 10px 5px #888888;
+    }
+
     .community-tag {
         font-size: 10px;
         border-radius: 2px;
@@ -102,13 +106,16 @@
     }
 </style>
 
-<body>
+<!--背景-->
+<!--<body style="background: url(/images/suimu.jpg);background-size:100% 100% ; background-attachment: fixed">-->
+<body style="background: url(/images/2020062402315474a6d928921c0b77b295c1b7542de6f3.jpg.w4000.h2759.jpg);background-size:100% 100% ; background-attachment: fixed">
+
 <!--导航栏-->
 <div th:insert="navigation::nav"></div>
 
 <!--左边的布局-->
-<div  class="col-lg-8 col-mg-12 col-sm-12 col-xs-12">
-    <div class="container-fluid main" style="margin-bottom: 0">
+<div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12">
+    <div class="container-fluid main" style="margin-bottom: 0;padding-top: 0px;box-shadow: 5px 5px 5px #888888;">
         <div class="row">
             <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
                 <!--  <h3><span class="glyphicon glyphicon-list" aria-hidden="true"></span> 发现</h3>-->
@@ -182,7 +189,7 @@
                                 <a th:href="@{'question/'+${question.id}}" th:text="${question.title}"></a>
                             </h4>
                         <!--                    <span th:text="${question.description}"></span><br>-->
-                            <span class="text-desc">
+                            <span class="text-desc" style="font-family: zcool_font">
                                 <span th:text="${question.commentCount}">
 
                                 </span> 个回复 ●
@@ -254,8 +261,8 @@
 </div>
 
 <!--热门话题-->
-<div  class="col-lg-4 col-mg-12 col-sm-12 col-xs-12" >
-    <div class="container-fluid main" style="font-size: 15px;margin-bottom: 0">
+<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12">
+    <div class="container-fluid main shadow" style="font-size: 15px;margin-bottom: 0">
         <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-fire"
                                                          aria-hidden="true"></span> 热门话题</h3>
         <ul class="fly-panel-main fly-list-static " id="tags-wrapper">
@@ -325,8 +332,6 @@
             </div>
 
 
-
-
             <div class="md-overlay"></div>
             <script src="js/alert/classie.js"></script>
             <script src="js/alert/modalEffects.js"></script>
@@ -378,12 +383,13 @@
 </div>
 
 <!--全部标签-->
-<div  class="col-lg-4 col-mg-12 col-sm-12 col-xs-12" >
-    <div class="container-fluid main" style="font-size: 15px;margin-top: 40;margin-bottom: 0">
+<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12">
+    <div class="container-fluid main shadow" style="font-size: 15px;margin-top: 40px;margin-bottom: 0">
         <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" style="font-size: 15px">
             <div>
                 <div class="fly-panel">
-                    <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-globe" aria-hidden="true"></span> 全部标签</h3>
+                    <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-globe"
+                                                                     aria-hidden="true"></span> 全部标签 </h3>
                     <ul class="fly-panel-main fly-list-static " id="tags-wrapper">
                         <li class="layui-anim community-tag" th:each="tag:${alltags}">
                             <!--                                <a href="/web/tag/java" class="tag-active ">java (70)</a>-->
@@ -400,8 +406,8 @@
 </div>
 
 <!--learning-->
-<div  class="col-lg-4 col-mg-12 col-sm-12 col-xs-12" >
-    <div class="container-fluid main" style="font-size: 15px;margin-top: 0">
+<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12">
+    <div class="container-fluid main shadow" style="font-size: 15px;margin-top: 0">
         <div class="row">
             <h3 style="margin-top: 10px;padding: 10px"><span class="glyphicon glyphicon-leaf"
                                                              aria-hidden="true"></span> Learning</h3>

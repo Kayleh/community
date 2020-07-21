@@ -164,7 +164,9 @@
                 <h4><span class="glyphicon glyphicon-search" aria-hidden="true"></span>相关问题</h4>
                 <ul class="question-related">
                     <li th:each="related:${relatedQuestions}">
-                        <a th:href="@{'/question/'+${related.id}}" th:text="${related.title}"></a>
+                        <small><a th:href="@{'/question/'+${related.id}}" style="font-size: 18px"
+                                  th:text="${related.title}"></a></small>
+                        <p></p>
                     </li>
                 </ul>
             </div>
