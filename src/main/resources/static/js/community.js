@@ -53,8 +53,8 @@ function comment2target(targetId, type, content) {
 
 function comment(e) {
     var commentId = e.getAttribute("data-id");
-    var content = $("#input-"+commentId).val();
-    comment2target(commentId,2,content)
+    var content = $("#input-" + commentId).val();
+    comment2target(commentId, 2, content)
 
 }
 
@@ -102,10 +102,10 @@ function collapseComments(e) {
                         "class": "menu"
                     })
                         .append($("<span/>", {
-                        "class": "pull-right",
-                        "html": moment(comment.gmtCreate).format('YYYY-MM-DD')
-                    }
-                    )));
+                                "class": "pull-right",
+                                "html": moment(comment.gmtCreate).format('YYYY-MM-DD')
+                            }
+                        )));
 
                     var mediaElement = $("<div/>", {
                         "class": "media"
@@ -164,11 +164,11 @@ function selectTag(e) {
 
     var previous = $("#tag").val();
 
-    if (previous.split(',').indexOf(value)==-1){
+    if (previous.split(',').indexOf(value) == -1) {
 
-        if (previous){
-            $("#tag").val(previous+","+value);
-        }else {
+        if (previous) {
+            $("#tag").val(previous + "," + value);
+        } else {
             $("#tag").val(value);
 
         }
@@ -187,13 +187,23 @@ var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径
 // bodyBgs[1] = "images/suimu.jpg";
 // bodyBgs[2] = "images/suimu.jpg";
 // bodyBgs[3] = "images/suimu.jpg";
-bodyBgs[0] = "images/01_bg.jpg";
-bodyBgs[1] = "images/02_bg.jpg";
-bodyBgs[2] = "images/03_bg.jpg";
-bodyBgs[3] = "images/04_bg.jpg";
+// bodyBgs[0] = "images/01_bg.jpg";
+// bodyBgs[1] = "images/02_bg.jpg";
+// bodyBgs[2] = "images/03_bg.jpg";
+// bodyBgs[3] = "images/04_bg.jpg";
+bodyBgs[0] = "#0bfff3";
+bodyBgs[1] = "palegreen";
+bodyBgs[2] = "mediumpurple";
+bodyBgs[3] = "lightgray";
+bodyBgs[4] = "saddlebrown";
+bodyBgs[5] = "pink";
+bodyBgs[6] = "orange";
+bodyBgs[7] = "lightsteelblue";
 
-var randomBgIndex = Math.round(Math.random() * 4);
+
+var randomBgIndex = Math.round(Math.random() * 8);
 
 //输出随机的背景图
-document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') background-size:100% 100% ; background-attachment: fixed}</style>');
+// document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') background-size:100% 100% ; background-attachment: fixed}</style>');
+document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');
 //]]>
