@@ -1,6 +1,5 @@
 package kayleh.wizard.community.interceptor;
 
-import kayleh.wizard.community.mapper.NotificationMapper;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.User;
 import kayleh.wizard.community.model.UserExample;

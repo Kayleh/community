@@ -1,6 +1,5 @@
 package kayleh.wizard.community.mapper;
 
-import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.dto.QuestionQueryDTO;
 import kayleh.wizard.community.model.Question;
 

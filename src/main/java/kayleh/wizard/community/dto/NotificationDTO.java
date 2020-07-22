@@ -1,6 +1,5 @@
 package kayleh.wizard.community.dto;
 
-import kayleh.wizard.community.model.User;
 import lombok.Data;
 
 /**

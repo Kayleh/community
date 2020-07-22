@@ -7,14 +7,17 @@ import kayleh.wizard.community.enums.NotificationTypeEnum;
 import kayleh.wizard.community.exception.CustomizeErrorCode;
 import kayleh.wizard.community.exception.CustomizeException;
 import kayleh.wizard.community.mapper.NotificationMapper;
-import kayleh.wizard.community.mapper.UserMapper;
-import kayleh.wizard.community.model.*;
+import kayleh.wizard.community.model.Notification;
+import kayleh.wizard.community.model.NotificationExample;
+import kayleh.wizard.community.model.User;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
 
 /**
  * @Author: Wizard

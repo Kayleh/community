@@ -1,6 +1,5 @@
 package kayleh.wizard.community.dto;
 
-import kayleh.wizard.community.model.Question;
 import lombok.Data;
 
 import java.util.ArrayList;

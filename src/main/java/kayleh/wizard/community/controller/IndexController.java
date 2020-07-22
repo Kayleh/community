@@ -4,7 +4,6 @@ import kayleh.wizard.community.cache.HotTagCache;
 import kayleh.wizard.community.cache.TagCache;
 import kayleh.wizard.community.dto.PaginationDTO;
 import kayleh.wizard.community.dto.TagDTO;
-import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

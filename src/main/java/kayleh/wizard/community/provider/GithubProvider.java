@@ -5,7 +5,6 @@ import kayleh.wizard.community.dto.AccessTokenDTO;
 import kayleh.wizard.community.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.io.IOException;
 

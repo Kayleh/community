@@ -1,10 +1,11 @@
 package kayleh.wizard.community.mapper;
 
-import java.util.List;
 import kayleh.wizard.community.model.User;
 import kayleh.wizard.community.model.UserExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
+
+import java.util.List;
 
 public interface UserMapper {
     /**

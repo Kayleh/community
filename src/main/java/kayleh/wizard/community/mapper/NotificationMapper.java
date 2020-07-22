@@ -1,11 +1,12 @@
 package kayleh.wizard.community.mapper;
 
-import java.util.List;
 import kayleh.wizard.community.model.Notification;
 import kayleh.wizard.community.model.NotificationExample;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
 
 @Component
 public interface NotificationMapper {

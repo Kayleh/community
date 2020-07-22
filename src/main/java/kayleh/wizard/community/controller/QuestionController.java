@@ -3,7 +3,6 @@ package kayleh.wizard.community.controller;
 import kayleh.wizard.community.dto.CommentDTO;
 import kayleh.wizard.community.dto.QuestionDTO;
 import kayleh.wizard.community.enums.CommentTypeEnum;
-import kayleh.wizard.community.model.Question;
 import kayleh.wizard.community.service.CommentService;
 import kayleh.wizard.community.service.QuestionService;
 import org.springframework.beans.factory.annotation.Autowired;

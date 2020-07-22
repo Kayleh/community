@@ -2,10 +2,7 @@ package kayleh.wizard.community.dto;
 
 import kayleh.wizard.community.exception.CustomizeErrorCode;
 import kayleh.wizard.community.exception.CustomizeException;
-import kayleh.wizard.community.model.User;
 import lombok.Data;
-
-import java.util.List;
 
 /**
  * @Author: Wizard

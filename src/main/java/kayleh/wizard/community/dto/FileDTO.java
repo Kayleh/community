@@ -2,9 +2,6 @@ package kayleh.wizard.community.dto;
 
 import lombok.Data;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  * @Author: Wizard
  * @Date: 2020/5/31 13:44

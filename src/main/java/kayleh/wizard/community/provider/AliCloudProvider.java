@@ -1,19 +1,12 @@
 package kayleh.wizard.community.provider;
 
 import com.aliyun.oss.OSS;
-import com.aliyun.oss.OSSClient;
 import com.aliyun.oss.OSSClientBuilder;
-import com.aliyun.oss.internal.OSSHeaders;
-import com.aliyun.oss.model.*;
 import kayleh.wizard.community.exception.CustomizeErrorCode;
 import kayleh.wizard.community.exception.CustomizeException;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Date;
