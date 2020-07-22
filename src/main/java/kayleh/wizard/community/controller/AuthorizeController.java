@@ -4,6 +4,7 @@ import kayleh.wizard.community.dto.AccessTokenDTO;
 import kayleh.wizard.community.dto.GithubUser;
 import kayleh.wizard.community.mapper.UserMapper;
 import kayleh.wizard.community.model.User;
+import kayleh.wizard.community.model.UserExample;
 import kayleh.wizard.community.provider.GithubProvider;
 import kayleh.wizard.community.service.UserService;
 import lombok.extern.slf4j.Slf4j;

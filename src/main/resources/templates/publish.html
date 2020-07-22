@@ -20,7 +20,7 @@
             crossorigin="anonymous"></script>
     <script src="/js/community.js" type="application/javascript"></script>
     <script src="/editor.md/editormd.min.js" type="application/javascript"></script>
-<!--    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+    <!--    <script src="https://cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
     <link rel="stylesheet" href="/css/community.css">
     <link rel="stylesheet" href="/editor.md/css/editormd.min.css">
 
@@ -37,10 +37,20 @@
     <link rel="stylesheet" type="text/css" href="/css/alert/component.css"/>
     <script src="js/alert/modernizr.custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
 </head>
+<style>body {
+    /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
+    /*background-color: #efefef;*/
+    /*background-color: mediumpurple;*/
+    font-family: zcool_logo;
+    font-size: 18px;
+}</style>
 <body>
+
 <div th:insert="navigation::nav"></div>
 <div th:insert="alert::nav"></div>
+
 <div class="container-fluid main">
     <div class="row">
         <div class="col-lg-9 col-mg-12 col-sm-12 col-xs-12">
@@ -171,6 +181,7 @@
         </div>
     </div>
 </div>
+
 <div th:insert="footer::foot"></div>
 </body>
 </html>

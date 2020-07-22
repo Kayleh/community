@@ -52,8 +52,6 @@ public class ProfileController {
         User user = (User) request.getSession().getAttribute("user");
 
 
-
-
         if (user == null) {
             return "redirect:/";
         }
@@ -77,9 +75,12 @@ public class ProfileController {
 
         //用户创建时间
         Long gmtCreate = user.getGmtCreate();
-        long l = System.currentTimeMillis();
-        model.addAttribute("userCreateTime", l -gmtCreate);
+        long currentTime = System.currentTimeMillis();
+        model.addAttribute("userCreateTime", currentTime - gmtCreate);
 
+        //活跃
+        long count = questionService.countByQusetion(user);
+        model.addAttribute("questionCount", count);
 
         return "profile";
     }

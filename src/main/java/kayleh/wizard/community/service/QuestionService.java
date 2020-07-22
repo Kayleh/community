@@ -36,6 +36,12 @@ public class QuestionService {
     QuestionExtMapper questionExtMapper;
 
 
+    public long countByQusetion(User user) {
+        QuestionExample example = new QuestionExample();
+        example.createCriteria().andCreatorEqualTo(user.getId());
+        return questionMapper.countByExample(example);
+    }
+
     public PaginationDTO list(String search, String tag, Integer page, Integer size, Integer zero) {
 
         //搜索

@@ -31,26 +31,38 @@
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" type="text/css" href="/css/alert/default.css"/>
     <link rel="stylesheet" type="text/css" href="/css/alert/component.css"/>
-    <script src="js/alert/modernizr.custom.js"></script>
+    <script src="/js/alert/modernizr.custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+    <script src="/js/community.js" type="application/javascript"></script>
 </head>
+<style>body {
+    /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
+    /*background-color: #efefef;*/
+    /*background-color: mediumpurple;*/
+    font-family: zcool_logo;
+    font-size: 18px;
+}
+</style>
+
 <!--<script type="application/javascript">-->
-<!--    //<!CDATA[-->
-<!--    var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径-->
-<!--    bodyBgs[0] = "../images/01_bg.jpg";-->
-<!--    bodyBgs[1] = "../images/02_bg.jpg";-->
-<!--    bodyBgs[2] = "../images/03_bg.jpg";-->
-<!--    bodyBgs[3] = "../images/04_bg.jpg";-->
-
-<!--    var randomBgIndex = Math.round(Math.random() * 4);-->
-
-<!--    //输出随机的背景图-->
-<!--    document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0}</style>');-->
-<!--    //]]>-->
+<!--    var bodyBgs = [];-->
+<!--    bodyBgs[0] = "#0bfff3";-->
+<!--    bodyBgs[1] = "palegreen";-->
+<!--    bodyBgs[2] = "mediumpurple";-->
+<!--    bodyBgs[3] = "lightgray";-->
+<!--    bodyBgs[4] = "saddlebrown";-->
+<!--    bodyBgs[5] = "pink";-->
+<!--    bodyBgs[6] = "orange";-->
+<!--    bodyBgs[7] = "lightsteelblue";-->
+<!--    var randomBgIndex = Math.round(Math.random() * 8);-->
+<!--    document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');-->
 <!--</script>-->
+
 <body>
+
 <div th:insert="navigation::nav"></div>
 <div th:insert="alert::nav"></div>
+
 <div class="container-fluid main profile">
     <div class="row">
         <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
@@ -63,7 +75,14 @@
                     </a>
                     <span style="font-size: 20px" th:text="${session.user!=null?session.user.name:'匿名用户'}"></span>
                     <p></p>
-                    <p>已加入社区
+                    <p style="color: black">
+                        活跃度:
+                        <span th:text="${questionCount}"></span>
+                        <br>
+                        加入时间:
+                        <span th:text="${#dates.format(session.user.gmtCreate,'yyyy-MM-dd HH:mm ')}"></span>
+                        <br>
+                        已加入社区:
                         <span
                                 th:text="${#dates.format(userCreateTime,'dd')}">
                         </span>天
@@ -87,7 +106,6 @@
             <!--            <hr>-->
             <p></p>
             <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" th:if="${section == 'questions'}">
-
                 <div class="media" th:each="question:${pagination.data}">
                     <div class="media-left">
                         <a href="#">
@@ -176,24 +194,7 @@
                     </ul>
                 </nav>
             </div>
-
-
         </div>
-
-
-        <!--        <div class="col-lg-3 col-mg-12 col-sm-12 col-xs-12">-->
-        <!--            <div class="list-group section">-->
-        <!--                <a href="/profile/questions"-->
-        <!--                   th:class="${section == 'questions'}?'active list-group-item':'list-group-item'">我的问题</a>-->
-        <!--                <a href="/profile/replies" class="list-group-item"-->
-        <!--                   th:classappend="${section == 'replies'}?'active':''">-->
-        <!--                    最新回复-->
-        <!--                    &lt;!&ndash;未读数&ndash;&gt;-->
-        <!--                    <span class="badge" th:text="${session.unreadCount}"></span>-->
-        <!--                </a>-->
-
-        <!--            </div>-->
-        <!--        </div>-->
     </div>
 </div>
 <!--</div>-->
