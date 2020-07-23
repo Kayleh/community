@@ -207,3 +207,5 @@ var randomBgIndex = Math.round(Math.random() * 8);
 // document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') background-size:100% 100% ; background-attachment: fixed}</style>');
 document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');
 //]]>
+
+
