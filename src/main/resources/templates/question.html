@@ -1,12 +1,10 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="zh-CN">
 <head>
-
     <!--    弹窗-->
     <meta charset="UTF-8"/>
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta name="description" content="Nifty Modal Window Effects with CSS Transitions and Animations"/>
     <meta name="keywords"
           content="modal, window, overlay, modern, box, css transition, css animation, effect, 3d, perspective"/>
@@ -16,7 +14,6 @@
     <link rel="stylesheet" type="text/css" href="/css/alert/component.css"/>
     <script src="js/alert/modernizr.custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
-
 
     <title th:text="${question.title}"></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
@@ -50,40 +47,30 @@
         /*$webfont.load("#id1,.class1,h1", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");*/
         /*．．．*/
         $webfont.draw();
+
+        $webfont.load(".zcool", "2ac30b0637634b9a93409857a9f343ae", "HappyZcool-2016");
+        $webfont.draw();
     </script>
+    <link rel="stylesheet" href="/css/animate.css">
 </head>
-<!--<script type="application/javascript">-->
-<!--    //<!CDATA[-->
-<!--    var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径-->
-<!--    bodyBgs[0] = "../images/01_bg.jpg";-->
-<!--    bodyBgs[1] = "../images/02_bg.jpg";-->
-<!--    bodyBgs[2] = "../images/03_bg.jpg";-->
-<!--    bodyBgs[3] = "../images/04_bg.jpg";-->
 
-<!--    var randomBgIndex = Math.round(Math.random() * 4);-->
-
-<!--    //输出随机的背景图-->
-<!--    document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') no-repeat 50% 0}</style>');-->
-<!--    //]]>-->
-<!--</script>-->
 <body>
 <div th:insert="navigation::nav"></div>
 <div th:insert="alert::nav"></div>
 
-<div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12">
+<!--        左边的布局-->
+<div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12 animate__animated animate__backInLeft zcool">
     <div class="container-fluid main profile">
         <div class="row">
-            <!--        左边的布局-->
             <div class="col-lg-9 col-mg-12 col-sm-12 col-xs-12">
-
                 <!--正文-->
-                <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
+                <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 zcool">
                     <h1 id="question-title" style="color: green"><span th:text="${question.title}"></span></h1>
-                    <span class="text-desc">
+                    <span class="text-desc zcool" id="zcool">
                 作者: <span th:text="${question.user.name}"></span> |
                 发布时间: <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm ')}"></span> |
-                阅读数: <span th:text="${question.viewCount}"></span> |
-            </span>
+                阅读数: <span th:text="${question.viewCount}"></span>
+                </span>
 
                     <hr class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 ">
 
@@ -124,7 +111,7 @@
 
 <!--        </hr>-->
 <!--        右边的布局-->
-<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12" style="font-size: 15px">
+<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12 animate__animated animate__backInRight zcool" style="font-size: 15px;position: fixed;">
     <div class="container-fluid main">
         <div class="column">
 
@@ -135,9 +122,8 @@
 
 
             <!--                <div class="col-lg-3 col-mg-12 col-sm-12 col-xs-12">-->
-            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
-                <h4><span class="glyphicon glyphicon-user" aria-hidden="true"></span>发起人</h4>
-
+            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation" >
+                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>发起人</h4>
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
@@ -167,12 +153,12 @@
             <!--                <h4>关注订阅号</h4>-->
             <!--                <img class="img-thumbnail question-wechat" src="/images/img/wechat.png">-->
             <!--            </div>-->
-            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
+            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation">
                 <div class="media-body">
-                    <h4><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发起时间</h4>
+                    <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发起时间</h4>
                     <span
                             th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm ')}">
-                        </span>
+                     </span>
                 </div>
             </div>
 
@@ -187,8 +173,8 @@
 
             <hr class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
             <!--相关问题-->
-            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
-                <h4><span class="glyphicon glyphicon-search" aria-hidden="true"></span>相关问题</h4>
+            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation">
+                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>相关问题</h4>
                 <ul class="question-related">
                     <li th:each="related:${relatedQuestions}">
                         <small><a th:href="@{'/question/'+${related.id}}" style="font-size: 18px"
@@ -202,10 +188,9 @@
 </div>
 
 
-<div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12">
+<div class="col-lg-8 col-mg-12 col-sm-12 col-xs-12 zcool animate__animated animate__rollIn">
     <div class="container-fluid main profile">
         <div class="row">
-            <!--        左边的布局-->
             <!--回复列表-->
             <div class="col-lg-9 col-mg-12 col-sm-12 col-xs-12">
                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -305,7 +290,6 @@
 </div>
 
 
-
 <div class="md-overlay"></div>
 <script src="/js/alert/classie.js"></script>
 <script src="/js/alert/modalEffects.js"></script>
@@ -314,8 +298,6 @@
 </script>
 <script src="/js/alert/cssParser.js"></script>
 <script src="/js/alert/css-filters-polyfill.js"></script>
-
-
 
 
 </body>

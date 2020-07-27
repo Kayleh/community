@@ -9,126 +9,184 @@
 /*}*/
 
 
-body{
+body {
     font-size: 18px;
 }
 
-.main{
+.main {
     background-color: white;
     margin: 70px 50px;
 }
-.btn-publish{
+
+.btn-publish {
     float: right;
     margin-bottom: 15px;
 }
-.media-object{
+
+.media-object {
     width: 38px;
     height: 38px;
 }
-.media-body{
+
+.media-body {
     /*padding-top: 10px;*/
 }
+
 .text-desc {
     font-size: 12px;
     font-weight: normal;
     color: #999;
 }
-.profile .section{
+
+.profile .section {
     margin-top: 15px;
 }
-.question-title{
+
+.question-title {
     margin-top: 25px;
 }
-.question-tag{
+
+.question-tag {
     margin-right: 5px;
 }
-.question-related{
+
+.question-related {
     line-height: 20px;
     font-size: 12px;
     margin-left: 0;
-    list-style: none;
+    /*list-style: none;*/
     padding-left: 0;
 }
-.question-wechat{
+
+.question-wechat {
     width: 50%;
 }
 
-.publish-tag-tab{
+.publish-tag-tab {
     display: none;
     margin-top: 10px;
     padding-top: 10px;
 }
 
-.publish-tag-tab .label-info{
+.publish-tag-tab .label-info {
     white-space: normal;
     margin: 5px 5px;
     display: inline-block;
 }
 
-.community-menu{
+.community-menu {
     /*display: block;*/
     color: #999;
     font-size: 13px;
     margin-bottom: 15px;
 }
-.jumbotron{
+
+.jumbotron {
     margin: 50px;
 }
-.comment{
+
+.comment {
     margin: 10px 0;
 }
-.btn-comment{
+
+.btn-comment {
     float: right;
     margin-bottom: 10px;
 }
 
-.comments{
+.comments {
     padding-bottom: 5px;
     margin-bottom: 15px;
     border-bottom: 1px solid #eee;
 }
-.sub-comments{
+
+.sub-comments {
     border-radius: 5px;
     margin-top: 10px;
     border: 1px solid #eee;
     padding-top: 15px;
     padding-bottom: 15px;
 }
-.sub-comments .btn{
+
+.sub-comments .btn {
     margin: 10px 0;
 }
 
-.comment-sp{
+.comment-sp {
     margin-top: 0;
 }
-.menu{
+
+.menu {
     margin-top: 5px;
     color: #999999;
 }
-.menu .icon{
+
+.menu .icon {
     margin-right: 6px;
     font-size: 15px;
     cursor: pointer;
 }
-.menu .comment-icon{
+
+.menu .comment-icon {
     font-size: 15px;
     cursor: pointer;
 }
 
-.menu .active{
+.menu .active {
     color: #499ef3;
 }
-.menu .icon:hover{
+
+.menu .icon:hover {
     color: #499ef3;
 }
-.footer{
+
+.footer {
     padding: 10px 25%;
     color: #666;
 }
 
+.RelatedInformation {
+    margin-left: 100px;
+}
 
-.fly-panel{margin-bottom: 15px; border-radius: 2px; background-color: #fff; box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);}
-.fly-panel[pad20]{padding: 20px;}
-.fly-panel-title{position: relative; height: 50px; line-height: 50px; padding: 0 15px; border-bottom: 1px dotted #E9E9E9; color: #333; border-radius: 2px 2px 0 0; font-size: 14px;}
-.fly-panel-main{padding: 10px 15px;}
-.layui-anim{-webkit-animation-duration:.3s;animation-duration:.3s;-webkit-animation-fill-mode:both;animation-fill-mode:both}
+.RelatedInformation_title {
+    color: green;
+    margin-left: 25px
+}
+
+
+
+
+
+.fly-panel {
+    margin-bottom: 15px;
+    border-radius: 2px;
+    background-color: #fff;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .05);
+}
+
+.fly-panel[pad20] {
+    padding: 20px;
+}
+
+.fly-panel-title {
+    position: relative;
+    height: 50px;
+    line-height: 50px;
+    padding: 0 15px;
+    border-bottom: 1px dotted #E9E9E9;
+    color: #333;
+    border-radius: 2px 2px 0 0;
+    font-size: 14px;
+}
+
+.fly-panel-main {
+    padding: 10px 15px;
+}
+
+.layui-anim {
+    -webkit-animation-duration: .3s;
+    animation-duration: .3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both
+}

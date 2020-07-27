@@ -136,7 +136,7 @@
 <!--</head>-->
 
 <!--<body class="loading">-->
-<body>
+
 <!--<div th:fragment="nav">-->
 
 <!--        <div id="iframe-wrap">-->
@@ -253,9 +253,20 @@
 <!--    <script src="js/imagesloaded.pkgd.min.js"></script>-->
 <!--    <script src="js/TweenMax.min.js"></script>-->
 <!--    <script src="js/demo.js"></script>-->
-
+<body>
 
 <nav class="navbar navbar-default animate__animated animate__jello">
+
+    <!--// webfont-->
+    <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
+    <script type="text/javascript">
+        $webfont.load("body", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");
+        /*$webfont.load("#id1,.class1,h1", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");*/
+        /*．．．*/
+        $webfont.draw();
+    </script>
+
+
     <div class="container-fluid">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -346,8 +357,10 @@
                 <li th:if="${session.user != null}">
                     <a href="/profile/questions">个人资料</a>
                 </li>
+
                 <!--                    <li><a href="/profile/replies">通知 <span class="badge" th:text="${unreadCount}"></span></a></li>-->
-                <li><a href="/profile/replies">通知 <span class="badge" th:text="${session.unreadCount}"></span></a>
+                <li th:if="${session.user != null}">
+                    <a href="/profile/replies">通知 <span class="badge" th:text="${session.unreadCount}"></span></a>
                 </li>
 
                 <li class="dropdown" th:if="${session.user != null}">
