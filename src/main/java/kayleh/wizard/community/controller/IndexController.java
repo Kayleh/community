@@ -29,7 +29,7 @@ public class IndexController {
     @Autowired
     private HotTagCache hotTagCache;
 
-    @GetMapping("/")
+    @GetMapping("/home")
 //    @RequestMapping("/")
     public String index(//HttpServletRequest request,
                         Model model,
@@ -80,6 +80,6 @@ public class IndexController {
         model.addAttribute("zero", zero);
         model.addAttribute("HotTags", HotTags);
 //        model.addAttribute("tag", tag);
-        return "index";
+        return "home";
     }
 }

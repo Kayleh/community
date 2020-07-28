@@ -181,31 +181,31 @@ function showSelectTag() {
 
 }
 
-//<!CDATA[
-var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径
-// bodyBgs[0] = "images/suimu.jpg";
-// bodyBgs[1] = "images/suimu.jpg";
-// bodyBgs[2] = "images/suimu.jpg";
-// bodyBgs[3] = "images/suimu.jpg";
-// bodyBgs[0] = "images/01_bg.jpg";
-// bodyBgs[1] = "images/02_bg.jpg";
-// bodyBgs[2] = "images/03_bg.jpg";
-// bodyBgs[3] = "images/04_bg.jpg";
-bodyBgs[0] = "#0bfff3";
-bodyBgs[1] = "palegreen";
-bodyBgs[2] = "mediumpurple";
-bodyBgs[3] = "lightgray";
-bodyBgs[4] = "saddlebrown";
-bodyBgs[5] = "pink";
-bodyBgs[6] = "orange";
-bodyBgs[7] = "lightsteelblue";
-
-
-var randomBgIndex = Math.round(Math.random() * 8);
-
-//输出随机的背景图
-// document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') background-size:100% 100% ; background-attachment: fixed}</style>');
-document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');
-//]]>
+// //<!CDATA[
+// var bodyBgs = [];    //创建一个数组变量来存储背景图片的路径
+// // bodyBgs[0] = "images/suimu.jpg";
+// // bodyBgs[1] = "images/suimu.jpg";
+// // bodyBgs[2] = "images/suimu.jpg";
+// // bodyBgs[3] = "images/suimu.jpg";
+// // bodyBgs[0] = "images/01_bg.jpg";
+// // bodyBgs[1] = "images/02_bg.jpg";
+// // bodyBgs[2] = "images/03_bg.jpg";
+// // bodyBgs[3] = "images/04_bg.jpg";
+// bodyBgs[0] = "#0bfff3";
+// bodyBgs[1] = "palegreen";
+// bodyBgs[2] = "mediumpurple";
+// bodyBgs[3] = "lightgray";
+// bodyBgs[4] = "saddlebrown";
+// bodyBgs[5] = "pink";
+// bodyBgs[6] = "orange";
+// bodyBgs[7] = "lightsteelblue";
+//
+//
+// var randomBgIndex = Math.round(Math.random() * 8);
+//
+// //输出随机的背景图
+// // document.write('<style>body{background:url(' + bodyBgs[randomBgIndex] + ') background-size:100% 100% ; background-attachment: fixed}</style>');
+// document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');
+// //]]>
 
 

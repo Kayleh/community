@@ -54,6 +54,7 @@
     <link rel="stylesheet" href="/css/animate.css">
 </head>
 
+
 <body>
 <div th:insert="navigation::nav"></div>
 <div th:insert="alert::nav"></div>
@@ -67,9 +68,9 @@
                 <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 zcool">
                     <h1 id="question-title" style="color: green"><span th:text="${question.title}"></span></h1>
                     <span class="text-desc zcool" id="zcool">
-                作者: <span th:text="${question.user.name}"></span> |
-                发布时间: <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm ')}"></span> |
-                阅读数: <span th:text="${question.viewCount}"></span>
+                author: <span th:text="${question.user.name}"></span> |
+                release time: <span th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm ')}"></span> |
+                views: <span th:text="${question.viewCount}"></span>
                 </span>
 
                     <hr class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 ">
@@ -111,7 +112,8 @@
 
 <!--        </hr>-->
 <!--        右边的布局-->
-<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12 animate__animated animate__backInRight zcool" style="font-size: 15px;position: fixed;">
+<div class="col-lg-4 col-mg-12 col-sm-12 col-xs-12 animate__animated animate__backInRight zcool" style="font-size: 15px;position: fixed;
+    margin-left: 1200px;">
     <div class="container-fluid main">
         <div class="column">
 
@@ -122,8 +124,9 @@
 
 
             <!--                <div class="col-lg-3 col-mg-12 col-sm-12 col-xs-12">-->
-            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation" >
-                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>发起人</h4>
+            <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation">
+                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>发起人
+                </h4>
                 <div class="media">
                     <div class="media-left">
                         <a href="#">
@@ -155,7 +158,8 @@
             <!--            </div>-->
             <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation">
                 <div class="media-body">
-                    <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-time" aria-hidden="true"></span>发起时间</h4>
+                    <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-time"
+                                                               aria-hidden="true"></span>发起时间</h4>
                     <span
                             th:text="${#dates.format(question.gmtCreate,'yyyy-MM-dd HH:mm ')}">
                      </span>
@@ -174,7 +178,8 @@
             <hr class="col-lg-12 col-mg-12 col-sm-12 col-xs-12">
             <!--相关问题-->
             <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 RelatedInformation">
-                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>相关问题</h4>
+                <h4 class="RelatedInformation_title"><span class="glyphicon glyphicon-search" aria-hidden="true"></span>相关问题
+                </h4>
                 <ul class="question-related">
                     <li th:each="related:${relatedQuestions}">
                         <small><a th:href="@{'/question/'+${related.id}}" style="font-size: 18px"
