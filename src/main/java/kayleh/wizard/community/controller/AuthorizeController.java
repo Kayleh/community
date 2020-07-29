@@ -46,7 +46,7 @@ public class AuthorizeController {
 
 
 //    @RequestMapping("/callback")
-    @GetMapping("/callback")
+    @GetMapping("/home/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
                            HttpServletRequest request,
@@ -91,7 +91,7 @@ public class AuthorizeController {
 
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/home/logout")
     public String logout(HttpServletRequest request,HttpServletResponse response){
         HttpSession session = request.getSession();
         session.removeAttribute("user");

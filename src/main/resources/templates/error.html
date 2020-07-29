@@ -29,13 +29,13 @@
     <!--    </script>-->
 </head>
 <body class="logo">
-<div class="logo" th:insert="navigation::nav"></div>
+<!--<div class="logo" th:insert="navigation::nav"></div>-->
 <div class="jumbotron animate__animated animate__tada logo"
-     style="padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;">
+     style="padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;margin-top: 0">
     <div style="margin: 50px">
         <h1>Error occurred！！！</h1>
         <p th:text="${message}">服务太热了，要不然稍等再来试试~</p>
-        <p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p>
+        <p><a class="btn btn-primary btn-lg" href="../" role="button">Back</a></p>
     </div>
 </div>
 <div th:insert="footer::foot"></div>

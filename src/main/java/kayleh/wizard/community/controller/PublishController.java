@@ -30,7 +30,7 @@ public class PublishController {
     @Autowired
     private QuestionService questionService;
 
-    @GetMapping("/publish/{id}")
+    @GetMapping("/home/publish/{id}")
     public String edit(@PathVariable("id") Long id, Model model) {
 
 

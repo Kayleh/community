@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html" lang="zh-CN">
 <head>
     <!--    弹窗-->
     <meta charset="UTF-8"/>
@@ -65,7 +65,7 @@
             <hr>
             <div align="center">
                 <p class="help-block">使用社交账号登录</p>
-                <a th:href="@{https://github.com/login/oauth/authorize(client_id='19ebcb4f921719bd4518',redirect_uri=${#httpServletRequest.getRequestURL()+'/callback'},scope='user',state=1)}">
+                <a style="color: black" th:href="@{https://github.com/login/oauth/authorize(client_id='19ebcb4f921719bd4518',redirect_uri=${#httpServletRequest.getRequestURL()+'/callback'},scope='user',state=1)}">
                     <img src="/images/img/github.png" width="30px">使用Github登录
                 </a>
                 <p></p>

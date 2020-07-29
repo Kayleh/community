@@ -23,7 +23,7 @@ public class NotificationController {
     private NotificationService notificationService;
 
 
-    @GetMapping("/notification/{id}")
+    @GetMapping("/home/notification/{id}")
     public String profile(@PathVariable("id") Long id, Model model, HttpServletRequest request) {
 
 

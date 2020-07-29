@@ -26,7 +26,7 @@ public class ProfileController {
     private NotificationService notificationService;
 
 
-    @GetMapping("/profile/{action}")
+    @GetMapping("/home/profile/{action}")
     public String profile(@PathVariable("action") String action, Model model, HttpServletRequest request,
                           @RequestParam(name = "page", defaultValue = "1") Integer page,
                           @RequestParam(name = "size", defaultValue = "5") Integer size) {
