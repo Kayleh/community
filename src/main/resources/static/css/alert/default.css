@@ -19,7 +19,7 @@ body, html { font-size: 100%; padding: 0; margin: 0; }
 .clearfix:before, .clearfix:after { content: " "; display: table; }
 .clearfix:after { clear: both; }
 
-body {
+body1 {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	color: #fff;
 	background: #e74c3c;
@@ -36,13 +36,13 @@ a:active {
 }
 
 /* Header Style */
-.main,
-.container > header {
+.main1,
+.container1 > header {
 	margin: 0 auto;
 	padding: 2em;
 }
 
-.container > header {
+.container1 > header {
 	text-align: center;
 	background: #d94839;
 	padding: 3em;
@@ -63,7 +63,7 @@ a:active {
 }
 
 /* Main Content */
-.main {
+.main1 {
 	max-width: 69em;
 }
 

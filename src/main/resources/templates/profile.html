@@ -18,7 +18,7 @@
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
             crossorigin="anonymous"></script>
     <!--    <script src="../js/community.js" type="application/javascript"></script>-->
-    <link rel="stylesheet" href="../css/community.css">
+    <link rel="stylesheet" href="/css/community.css">
     <!--    在同级目录找资源，这里是profile/questions/所以找不到-->
     <!--    弹窗-->
     <meta charset="UTF-8"/>
@@ -36,26 +36,9 @@
     <script src="/js/community.js" type="application/javascript"></script>
     <!--// webfont-->
     <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
-    <script type="text/javascript">
-        $webfont.load("body", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");
-        /*$webfont.load("#id1,.class1,h1", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");*/
-        /*．．．*/
-        $webfont.draw();
 
-        $webfont.load(".zcool", "2ac30b0637634b9a93409857a9f343ae", "HappyZcool-2016");
-        /*$webfont.load("#id1,.class1,h1", "2ac30b0637634b9a93409857a9f343ae", "HappyZcool-2016");*/
-        /*．．．*/
-        $webfont.draw();
-    </script>
 </head>
-<style>body {
-    /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
-    /*background-color: #efefef;*/
-    /*background-color: mediumpurple;*/
 
-    font-size: 18px;
-}
-</style>
 
 <!--<script type="application/javascript">-->
 <!--    var bodyBgs = [];-->
@@ -70,18 +53,22 @@
 <!--    var randomBgIndex = Math.round(Math.random() * 8);-->
 <!--    document.write('<style>body{background:' + bodyBgs[randomBgIndex] + ' }</style>');-->
 <!--</script>-->
-
-<body class="logo">
+<style>
+    body {
+        background-color: #333
+    }
+</style>
+<body style="color: #333">
 
 <div class="logo" th:insert="navigation::nav"></div>
 <div class="logo" th:insert="alert::nav"></div>
 
 <div class="container-fluid main profile">
     <div class="row">
-        <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 zcool animate__animated animate__zoomInUp">
+        <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12 animate__animated animate__zoomInUp">
             <div>
 
-                <div align="center">
+                <div align="center" class="logo">
                     <a href="#">
                         <img class="media-object img-circle" style="width: 150px;height: 150px;padding: 15px"
                              th:src="${session.user!=null?session.user.avatarUrl:'/images/img/default_avatar.png'}">
@@ -104,10 +91,10 @@
             </div>
 
             <!-- 导航条-->
-            <ul class="nav nav-tabs">
-                <li role="presentation" class=""><a href="/profile/questions"
-                                                    th:class="${section == 'questions'}?'active':''">我的提问</a></li>
-                <li role="presentation" class=""><a href="/profile/replies"
+            <ul class="nav nav-tabs ">
+                <li role="presentation" class="logo"><a href="/home/profile/questions"
+                                                        th:class="${section == 'questions'}?'active':''">我的提问</a></li>
+                <li role="presentation" class=""><a href="/home/profile/replies" class="logo"
                                                     th:classappend="${section == 'replies'}?'active':''">最新回复 <!--未读数-->
                     <span class="badge" th:text="${session.unreadCount}"></span></a>
 
@@ -115,7 +102,7 @@
 
             </ul>
 
-            <h2><span th:text="${sectionName}"></span></h2>
+            <h2 class="logo"><span th:text="${sectionName}"></span></h2>
             <!--            <hr>-->
             <p></p>
             <div class="col-lg-12 col-mg-12 col-sm-12 col-xs-12" th:if="${section == 'questions'}">
@@ -127,7 +114,7 @@
                     </div>
                     <div class="media-body">
                         <h4 class="media-heading">
-                            <a th:href="@{'/question/'+${question.id}}" th:text="${question.title}"></a>
+                            <a th:href="@{'/home/question/'+${question.id}}" th:text="${question.title}"></a>
                         </h4>
                         <span class="text-desc">
                             <span th:text="${question.commentCount}"></span>
@@ -175,13 +162,13 @@
                 <nav aria-label="Page navigation">
                     <ul class="pagination">
                         <li th:if="${pagination.showFirstPage}">
-                            <a th:href="@{'/profile/'+${section}(page=${1})}"
+                            <a th:href="@{'/home/profile/'+${section}(page=${1})}"
                                aria-label="Previous">
                                 <span aria-hidden="true">&lt;&lt;</span>
                             </a>
                         </li>
                         <li th:if="${pagination.showPrevious}">
-                            <a th:href="@{'/profile/'+${section}(page=${pagination.page - 1})}"
+                            <a th:href="@{'/home/profile/'+${section}(page=${pagination.page - 1})}"
                                aria-label="Previous">
                                 <span aria-hidden="true">&lt;</span>
                             </a>
@@ -189,17 +176,17 @@
 
                         <li th:each="page : ${pagination.pages}"
                             th:class="${pagination.page == page}? 'active' : ''">
-                            <a th:href="@{'/profile/'+${section}(page=${page})}" th:text="${page}"></a>
+                            <a th:href="@{'/home/profile/'+${section}(page=${page})}" th:text="${page}"></a>
                         </li>
 
                         <li th:if="${pagination.showNext}">
-                            <a th:href="@{'/profile/'+${section}(page=${pagination.page +1})}"
+                            <a th:href="@{'/home/profile/'+${section}(page=${pagination.page +1})}"
                                aria-label="Previous">
                                 <span aria-hidden="true">&gt;</span>
                             </a>
                         </li>
                         <li th:if="${pagination.showEndPage}">
-                            <a th:href="@{'/profile/'+${section}(page=${pagination.totalPage})}"
+                            <a th:href="@{'/home/profile/'+${section}(page=${pagination.totalPage})}"
                                aria-label="Previous">
                                 <span aria-hidden="true">&gt;&gt;</span>
                             </a>

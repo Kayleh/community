@@ -51,21 +51,20 @@
     /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
     /*background-color: #efefef;*/
     /*background-color: mediumpurple;*/
-    font-family: zcool_logo;
-    font-size: 18px;
+    background-color: #333;
 }</style>
 <body>
 
-<div th:insert="navigation::nav"></div>
-<div th:insert="alert::nav"></div>
+<div class="logo" th:insert="navigation::nav"></div>
+<div class="logo" th:insert="alert::nav"></div>
 
-<div class="container-fluid main">
+<div class="container-fluid main logo">
     <div class="row">
         <div class="col-lg-9 col-mg-12 col-sm-12 col-xs-12">
             <h2 style="color: green"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 提问</h2>
             <hr>
 
-            <form action="/publish" method="post">
+            <form action="/home/publish" method="post">
                 <input type="hidden" name="id" th:value="${id}">
                 <div class="form-group">
                     <label for="title">问题标题（简单扼要）:</label>

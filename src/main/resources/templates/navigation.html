@@ -355,16 +355,16 @@
 
             <ul class="nav navbar-nav navbar-right">
                 <li th:if="${session.user != null}">
-                    <a href="/publish">发起</a>
+                    <a href="/home/publish">发起</a>
                 </li>
 
                 <li th:if="${session.user != null}">
-                    <a href="/profile/questions">个人资料</a>
+                    <a href="/home/profile/questions">个人资料</a>
                 </li>
 
                 <!--                    <li><a href="/profile/replies">通知 <span class="badge" th:text="${unreadCount}"></span></a></li>-->
                 <li th:if="${session.user != null}">
-                    <a href="/profile/replies">通知 <span class="badge" th:text="${session.unreadCount}"></span></a>
+                    <a href="/home/profile/replies">通知 <span class="badge" th:text="${session.unreadCount}"></span></a>
                 </li>
 
                 <li class="dropdown" th:if="${session.user != null}">
@@ -375,9 +375,9 @@
                         <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/profile/questions">个人资料</a></li>
+                        <li><a href="/home/profile/questions">个人资料</a></li>
                         <!--                        <li><a href="#">个人资料</a></li>-->
-                        <li><a href="/logout">LogOut</a></li>
+                        <li><a href="/home/logout">LogOut</a></li>
                     </ul>
                 </li>
 

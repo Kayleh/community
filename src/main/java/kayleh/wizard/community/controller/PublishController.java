@@ -45,7 +45,7 @@ public class PublishController {
         return "publish";
     }
 
-    @GetMapping("/publish")
+    @GetMapping("/home/publish")
     public String publish(Model model) {
         //
         model.addAttribute("tags", TagCache.get());
@@ -53,7 +53,7 @@ public class PublishController {
         return "publish";
     }
 
-    @PostMapping("/publish")
+    @PostMapping("/home/publish")
     public String doPublish(
             @RequestParam(value = "title", required = false) String title,
             @RequestParam(value = "description", required = false) String description,

@@ -45,7 +45,7 @@ public class AuthorizeController {
     private String redirectUri;
 
 
-//    @RequestMapping("/callback")
+    //    @RequestMapping("/callback")
     @GetMapping("/home/callback")
     public String callback(@RequestParam(name = "code") String code,
                            @RequestParam(name = "state") String state,
@@ -59,7 +59,7 @@ public class AuthorizeController {
         accessTokenDTO.setState(state);
         String accessToken = githubProvider.getAccessToken(accessTokenDTO);
         GithubUser githubUser = githubProvider.getUser(accessToken);
-        if (githubUser!=null && githubUser.getId()!=null) {
+        if (githubUser != null && githubUser.getId() != null) {
             User user = new User();
             //token是需要更新的
             String token = UUID.randomUUID().toString();
@@ -80,25 +80,26 @@ public class AuthorizeController {
 
             request.getSession().setAttribute("user", githubUser);
 
-            return "redirect:/";
-
+//            return "redirect:/";
+            return "redirect:/home";
         } else {
             //登录失败，重新登录
 //            return "index";
             log.error("callback get github error,{}", githubUser);
-            return "redirect:/";
+//            return "redirect:/";
+            return "redirect:/home";
         }
 
     }
 
     @GetMapping("/home/logout")
-    public String logout(HttpServletRequest request,HttpServletResponse response){
+    public String logout(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         session.removeAttribute("user");
         Cookie cookie = new Cookie("token", null);
         cookie.setMaxAge(0);
         response.addCookie(cookie);
-        return "redirect:/";
+        return "redirect:/home";
     }
 
 }
