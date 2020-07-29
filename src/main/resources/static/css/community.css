@@ -1,12 +1,18 @@
 @font-face {    font-family:zcool_logo;    src:url("/font/zcool/logo.otf");}
-@font-face {    font-family:zcool_font;    src:url("/font/zcool/zcool_font.ttf");}
+/*@font-face {    font-family:zcool_font;    src:url("/font/zcool/zcool_font.ttf");}*/
+@font-face {    font-family:zcool_button;    src:url("/font/zcool/zcool_button.ttf");}
 body{
     /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
     /*background-color: #efefef;*/
     /*background-color: mediumpurple;*/
-    font-family: zcool_logo;
+    /*font-family: zcool_button;*/
     font-size: 18px;
     background-color: #333;
+}
+
+.logo{
+    font-size: 20px;
+    font-family: zcool_logo;
 }
 
 
@@ -146,9 +152,9 @@ body{
     color: #666;
 }
 
-.RelatedInformation {
-    margin-left: 100px;
-}
+/*.RelatedInformation {*/
+/*    margin-left: 100px;*/
+/*}*/
 
 .RelatedInformation_title {
     color: green;

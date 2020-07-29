@@ -25,7 +25,7 @@ public class QuestionController {
     @Autowired
     private CommentService commentService;
 
-    @GetMapping("/question/{id}")
+    @GetMapping("/home/question/{id}")
     public String question(@PathVariable(name = "id") Long id, Model model) {
         QuestionDTO questionDTO = questionService.getById(id);
 

@@ -20,20 +20,23 @@
     <link rel="stylesheet" href="/css/community.css">
     <script src="/js/community.js" type="application/javascript"></script>
     <!--// webfont-->
-    <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>
-    <script type="text/javascript">
-        $webfont.load("body", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");
-        /*$webfont.load("#id1,.class1,h1", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");*/
-        /*．．．*/
-        $webfont.draw();
-    </script>
+    <!--    <script type="text/javascript" src="http://cdn.repository.webfont.com/wwwroot/js/wf/youziku.api.min.js"></script>-->
+    <!--    <script type="text/javascript">-->
+    <!--        $webfont.load("body", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");-->
+    <!--        /*$webfont.load("#id1,.class1,h1", "bfcbbc52edb74b2fb45d68942e7b3791", "xiaowei");*/-->
+    <!--        /*．．．*/-->
+    <!--        $webfont.draw();-->
+    <!--    </script>-->
 </head>
-<body>
-<div th:insert="navigation::nav"></div>
-<div class="jumbotron">
-    <h1>出错啦！！！</h1>
-    <p th:text="${message}">服务太热了，要不然稍等再来试试~</p>
-    <p><a class="btn btn-primary btn-lg" href="/" role="button">回到主页</a></p>
+<body class="logo">
+<div class="logo" th:insert="navigation::nav"></div>
+<div class="jumbotron animate__animated animate__tada logo"
+     style="padding-right: 15px;padding-left: 15px;margin-right: auto;margin-left: auto;">
+    <div style="margin: 50px">
+        <h1>Error occurred！！！</h1>
+        <p th:text="${message}">服务太热了，要不然稍等再来试试~</p>
+        <p><a class="btn btn-primary btn-lg" href="/" role="button">Back</a></p>
+    </div>
 </div>
 <div th:insert="footer::foot"></div>
 </body>
