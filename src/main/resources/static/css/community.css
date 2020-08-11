@@ -1,19 +1,27 @@
-@font-face {    font-family:zcool_logo;    src:url("/font/zcool/logo.otf");}
-/*@font-face {    font-family:zcool_font;    src:url("/font/zcool/zcool_font.ttf");}*/
-@font-face {    font-family:zcool_button;    src:url("/font/zcool/zcool_button.ttf");}
-body{
+/*@font-face {*/
+/*    font-family: zcool_logo;*/
+/*    src: url("/font/zcool/logo.otf");*/
+/*}*/
+
+/*!*@font-face {    font-family:zcool_font;    src:url("/font/zcool/zcool_font.ttf");}*!*/
+/*@font-face {*/
+/*    font-family: zcool_button;*/
+/*    src: url("/font/zcool/zcool_button.ttf");*/
+/*}*/
+
+body {
     /*font: 20px Helvetica Neue,Helvetica,PingFang SC,Tahoma,Arial,sans-serif;*/
     /*background-color: #efefef;*/
     /*background-color: mediumpurple;*/
     /*font-family: zcool_button;*/
-    font-size: 18px;
+    font-size: 15px;
     background-color: #333;
 }
 
-.logo{
-    font-size: 20px;
-    font-family: zcool_logo;
-}
+/*.logo {*/
+/*    font-size: 14px;*/
+/*    !*font-family: zcool_logo;*!*/
+/*}*/
 
 
 /*body {*/
@@ -160,9 +168,6 @@ body{
     color: green;
     margin-left: 25px
 }
-
-
-
 
 
 .fly-panel {
